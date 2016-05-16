@@ -13,15 +13,17 @@
     <title>Login</title>
 </head>
 <body>
-    <div id="container">
-        <div id="login-box">
-            <div class="empty"></div>
-            <span class="label">Email</span><input type="text" name="uid" id="user-id" />
-            <span class="label">Password</span><input type="password" name="upass" id="user-pass" />
-            <button type="submit" id="btn-submit">LOGIN</button>
-            <span class="helper">회원가입 / 아이디 또는 암호 찾기 / <a href="/Home/Main">첫 화면으로</a></span><br />
-            <span class="helper">@TempData["msg"]</span>
+    <form name="LoginForm" id="login-form" action="/Authorize/Login" method="post">
+        <div id="container">
+            <div id="login-box">
+                <div class="empty"></div>
+                <span class="label">Email</span><input type="text" name="userId" id="user-id" />
+                <span class="label">Password</span><input type="password" name="userPass" id="user-pass" />
+                <button type="submit" id="btn-submit">LOGIN</button>
+                <span class="helper">회원가입 / 아이디 또는 암호 찾기 / <a href="/Home/Main">첫 화면으로</a></span><br />
+                <span class="helper" style="color:red; font-weight:bolder; font-size:15px;">@TempData["msg"]</span>
+            </div>
         </div>
-    </div>
+    </form>
 </body>
 </html>

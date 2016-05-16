@@ -115,6 +115,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Domains\Menu.cs" />
+    <Compile Include="Models\Domains\User.cs" />
     <Compile Include="Models\Helpers\AuthorizeHelper.cs" />
     <Compile Include="Models\Helpers\Base\BaseDataAccessHelper.cs" />
     <Compile Include="Models\Helpers\MenuHelper.cs" />

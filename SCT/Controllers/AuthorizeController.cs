@@ -12,14 +12,31 @@ namespace SCT.Controllers
         //
         // GET: /Authorize/
 
-        public ActionResult Login(string id, string password)
+        public ActionResult Login()
         {
-            //string id = Request["id"];
-            //string password = Request["password"];
+            string id = Request["userId"];
+            string password = Request["userPass"];
 
             AuthorizeHelper auth = new AuthorizeHelper();
             var result = auth.LoginCheck(id, password);
-            return Json(result, JsonRequestBehavior.AllowGet);
+            
+            if (0 == result.Count)
+            {
+                TempData["msg"] = "사용자 정보가 없습니다.";
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                ViewBag.User = result;
+                Session["UserName"] = result[0].Name;
+                return RedirectToAction("Main", "Home");
+            }
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Main", "Home");
         }
 
     }

@@ -6,18 +6,26 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="~/Common/Styles/BaseStyle.css" />
-    <link rel="stylesheet" type="text/css" href="~/Common/Styles/AccountStyle.css" />
     <script src="~/Common/Scripts/plugin/jquery-1.11.3.min.js"></script>
     <script src="~/Common/Scripts/MenuScript.js"></script>
+    <script src="~/Common/Scripts/LoginScript.js"></script>
     <title>MainLayout</title>
 </head>
 <body>
     <div id="container">
         <div id="top-navi">
             <div class="width_guide">
-                <span class="btn_span"><a href="/Home/Login">로그인</a></span>
+                @if (null != @Session["UserName"])
+                {
+                    <span class="btn_span"><a href="/">@Session["UserName"]</a>&nbsp;&nbsp;&nbsp;</span>
+                    <span id="btn-logout" class="btn_span">로그아웃</span>
+                }
+                else
+                {
+                    <span class="btn_span"><a href="/Home/Login">로그인</a></span>
+                }
             </div>
         </div>
         <div id="mid-navi">
