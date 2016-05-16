@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/BaseStyle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/AccountStyle.css" />
+    <script src="~/Common/Scripts/plugin/jquery-1.11.3.min.js"></script>
+    <script src="~/Common/Scripts/MenuScript.js"></script>
+    <title>MainLayout</title>
+</head>
+<body>
+    <div id="container">
+        <div id="top-navi">
+            <div class="width_guide">
+                <span class="btn_span"><a href="/Home/Login">로그인</a></span>
+            </div>
+        </div>
+        <div id="mid-navi">
+            <div class="width_guide">
+                <div id="search-area">
+                    <input type="text" name="searchWord" id="search-word" /><button type="button" id="search-btn">Search</button>
+                </div>
+                <div id="menus-area">
+                    <ul id="main-menus">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="contents">
+            @RenderBody()
+        </div>
+        <div id="footer">
+
+        </div>
+    </div>
+</body>
+</html>

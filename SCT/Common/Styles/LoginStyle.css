@@ -1,0 +1,59 @@
+﻿/* 초기화 */
+* {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    font-family: 'Malgun Gothic', DotumChe, GulimChe;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+#container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#login-box {
+    margin: 200px auto;
+    width: 450px;
+    height: 320px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    font-weight: bold;
+}
+.label {
+    margin: 10px auto;
+    width: 312px;
+    display: block;
+}
+.helper {
+    font-size: 12px;
+    display: block;
+    text-align: center;
+}
+.empty {
+    height: 20px;
+}
+#user-id, #user-pass {
+    margin: 10px auto;
+    padding: 0 5px;
+    width: 300px;
+    height: 40px;
+    display: block;
+    font-size: 18px;
+}
+#btn-submit {
+    margin: 20px auto;
+    width: 312px;
+    height: 45px;
+    display: block;
+    border: 1px solid black;
+    background-color: #31303B;
+    color: white;
+}

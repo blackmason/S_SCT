@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/LoginStyle.css" />
+    <script src="~/Common/Scripts/plugin/jquery-1.11.3.min.js"></script>
+    <script src="~/Common/Scripts/LoginScript.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div id="container">
+        <div id="login-box">
+            <div class="empty"></div>
+            <span class="label">Email</span><input type="text" name="uid" id="user-id" />
+            <span class="label">Password</span><input type="password" name="upass" id="user-pass" />
+            <button type="submit" id="btn-submit">LOGIN</button>
+            <span class="helper">회원가입 / 아이디 또는 암호 찾기 / <a href="/Home/Main">첫 화면으로</a></span><br />
+            <span class="helper">@TempData["msg"]</span>
+        </div>
+    </div>
+</body>
+</html>
