@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Common/Styles/BruceAlmightyStyle.css" />
+    <title>AlmightyLayout</title>
+</head>
+<body>
+    <div id="container">
+        <div id="top-navi">
+
+        </div>
+        <div id="mid-navi">
+            <span>Bruce ALMIGHTY</span><span><a href="/">첫화면으로</a></span>
+        </div>
+        <div id="side-navi">
+            <br />
+            <ul id="side-menus">
+                <li class="side_menu"><a href="/">메뉴관리</a></li>
+                <li class="side_menu"><a href="/">사용자관리</a></li>
+                <li class="side_menu"><a href="/">제품업로드</a></li>
+            </ul>
+        </div>
+        <div id="contents">
+
+            @RenderBody()
+        
+        </div>
+        <div id="footer">
+
+        </div>
+    </div>
+</body>
+</html>

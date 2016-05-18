@@ -108,8 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AlmightyController.cs" />
     <Compile Include="Controllers\AuthorizeController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -130,6 +131,7 @@
     <Content Include="Common\Scripts\plugin\jquery-1.11.3.min.js" />
     <Content Include="Common\Styles\BaseStyle.css" />
     <Content Include="Common\Styles\LoginStyle.css" />
+    <Content Include="Common\Styles\BruceAlmightyStyle.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -154,6 +156,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Almighty\CommandCenter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_Layouts\AlmightyLayout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

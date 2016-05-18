@@ -17,9 +17,10 @@
     <div id="container">
         <div id="top-navi">
             <div class="width_guide">
+                <span class="btn_span btn_home"><a href="/Home/Main">첫화면</a></span>
                 @if (null != @Session["UserName"])
                 {
-                    <span class="btn_span"><a href="/">@Session["UserName"]</a>&nbsp;&nbsp;&nbsp;</span>
+                    <span class="btn_span"><a href="/Almighty/CommandCenter">@Session["UserName"]</a>&nbsp;&nbsp;&nbsp;</span>
                     <span id="btn-logout" class="btn_span">로그아웃</span>
                 }
                 else
@@ -41,6 +42,7 @@
             </div>
         </div>
         <div id="contents">
+            
             @RenderBody()
         </div>
         <div id="footer">

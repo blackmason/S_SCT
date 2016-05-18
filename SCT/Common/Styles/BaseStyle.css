@@ -43,6 +43,7 @@ html, body {
 }
 #contents {
     margin: 0 auto;
+    padding: 10px;
     width: 80%;
     min-height: 800px;
     border-left: 1px solid #ccc;
@@ -93,7 +94,12 @@ li > ul {
 
 /* 최상단 메뉴 */
 .btn_span {
+    line-height: 25px;
     vertical-align: middle;
+}
+.btn_home {
+    float: left;
+    line-height: 25px;
 }
 
 /* 그 외 */

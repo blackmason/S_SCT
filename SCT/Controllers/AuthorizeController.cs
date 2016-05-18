@@ -29,6 +29,7 @@ namespace SCT.Controllers
             {
                 ViewBag.User = result;
                 Session["UserName"] = result[0].Name;
+                Session["Role"] = result[0].Role;
                 return RedirectToAction("Main", "Home");
             }
         }
