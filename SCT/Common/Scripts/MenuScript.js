@@ -9,9 +9,6 @@
             alert('error');
         }
     });
-
-
-    
 });
 
 function SetDropdownMenu(obj) {

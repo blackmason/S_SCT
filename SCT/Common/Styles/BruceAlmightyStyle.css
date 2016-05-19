@@ -76,7 +76,9 @@ a, a:visited {
 }
 
 .summary {
+    margin: 10px;
     width: 300px;
-    height: 100px;
+    height: 150px;
+    display: inline-block;
     border: 1px solid #ccc;
 }
