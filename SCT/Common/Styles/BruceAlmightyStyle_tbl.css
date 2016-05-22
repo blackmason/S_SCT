@@ -33,13 +33,22 @@ html, body {
     width: 100px;
     background-color: #ccc;
 }
-#side-navi {
-    float: left;
-    margin: 0;
-    width: 15%;
+
+/* 테이블 적용 테스트 */
+#tbl-body {
+    width: 100%;
     height: auto;
     min-height: 800px;
+    border-collapse: collapse;
+}
+#body > tr {
+    border-collapse: collapse;
+}
+#side-navi {
+    width: 15%;
+    height: auto;
     font-size: 15px;
+    vertical-align: top;
     background-color: #ccc;
 }
 #side-menus {
@@ -59,12 +68,11 @@ html, body {
     border-top: 1px solid white;
 }
 #contents {
-    float: left;
-    padding: 30px;
-    width: 81%;
-    height: auto;
-    min-height: 800px;
-    border: 1px solid black;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    vertical-align: top;
 }
 #footer {
     float: left;
@@ -87,9 +95,22 @@ a, a:visited {
     display: inline-block;
     border: 1px solid #ccc;
 }
+
 /* 메뉴관리 화면 */
+#tree-menus, #menu-form {
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #ccc;
+}
+
 #tree-menus {
-    width: 30%;
-    height: 800px;
-    border: 1px solid black;
+    width: 20%;
+    height: auto;
+    min-height: 500px;
+}
+#menu-form {
+    width: 20%;
+    height: auto;
+    min-height: 500px;
 }

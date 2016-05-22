@@ -16,5 +16,10 @@ namespace SCT.Controllers
             return View();
         }
 
+        public ActionResult ManageMenu()
+        {
+            return View();
+        }
+
     }
 }

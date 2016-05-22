@@ -28,13 +28,13 @@ html, body {
 #search-word {
     padding: 0 5px;
     width: 250px;
-    height: 20px;
+    height: 22px;
     border: none;
-    font-size: 11px;
+    font-size: 12px;
 }
 #search-btn {
     padding: 0 5px;
-    height: 20px;
+    height: 22px;
     border: none;
 }
 #menus-area {
