@@ -18,18 +18,20 @@
         <div id="mid-navi">
             <span>Bruce ALMIGHTY</span><span><a href="/">첫화면으로</a></span>
         </div>
-        <div id="side-navi">
-            <br />
-            <ul id="side-menus">
-                <li class="side_menu"><a href="/Almighty/ManageMenu">메뉴관리</a></li>
-                <li class="side_menu"><a href="/Almighty/ManageUser">사용자관리</a></li>
-                <li class="side_menu"><a href="/Almighty/ProductUp">제품업로드</a></li>
-            </ul>
-        </div>
-        <div id="contents">
+        <div id="wrapper">
+            <div id="side-navi">
+                <br />
+                <ul id="side-menus">
+                    <li class="side_menu"><a href="/Almighty/ManageMenu">메뉴관리</a></li>
+                    <li class="side_menu"><a href="/Almighty/ManageUser">사용자관리</a></li>
+                    <li class="side_menu"><a href="/Almighty/ProductUp">제품업로드</a></li>
+                </ul>
+            </div>
+            <div id="contents">
 
-            @RenderBody()
-        
+                @RenderBody()
+
+            </div>
         </div>
         <div id="footer">
 

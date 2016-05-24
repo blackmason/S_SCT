@@ -130,7 +130,6 @@
     <Content Include="Common\Scripts\MenuScript.js" />
     <Content Include="Common\Scripts\plugin\jquery-1.11.3.min.js" />
     <Content Include="Common\Styles\BaseStyle.css" />
-    <Content Include="Common\Styles\BruceAlmightyStyle_tbl.css" />
     <Content Include="Common\Styles\LoginStyle.css" />
     <Content Include="Common\Styles\BruceAlmightyStyle.css" />
     <Content Include="Global.asax" />
@@ -166,9 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Almighty\ManageMenu.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\_Layouts\AlmightyLayout_tbl.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

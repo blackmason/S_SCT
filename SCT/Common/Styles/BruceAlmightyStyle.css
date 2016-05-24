@@ -33,12 +33,16 @@ html, body {
     width: 100px;
     background-color: #ccc;
 }
+
+#wrapper {
+    width: 100%;
+    position: relative;
+}
 #side-navi {
     float: left;
-    margin: 0;
     width: 15%;
-    height: auto;
-    min-height: 800px;
+    height: 100%;
+    position: absolute;
     font-size: 15px;
     background-color: #ccc;
 }
@@ -59,12 +63,10 @@ html, body {
     border-top: 1px solid white;
 }
 #contents {
-    float: left;
-    padding: 30px;
-    width: 81%;
-    height: auto;
-    min-height: 800px;
-    border: 1px solid black;
+    margin-left: 16%;
+    padding-top: 20px;
+    width: auto;
+    height: 100%;
 }
 #footer {
     float: left;
