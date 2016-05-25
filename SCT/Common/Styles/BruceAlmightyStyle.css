@@ -42,9 +42,17 @@ html, body {
     float: left;
     width: 15%;
     height: 100%;
+    min-height: 800px;
     position: absolute;
     font-size: 15px;
     background-color: #ccc;
+}
+#contents {
+    margin-left: 16%;
+    padding-top: 20px;
+    width: auto;
+    height: 100%;
+    min-height: 800px;
 }
 #side-menus {
     padding: 5px;
@@ -61,12 +69,6 @@ html, body {
 }
 .side_menu:nth-child(1){
     border-top: 1px solid white;
-}
-#contents {
-    margin-left: 16%;
-    padding-top: 20px;
-    width: auto;
-    height: 100%;
 }
 #footer {
     float: left;
@@ -86,12 +88,45 @@ a, a:visited {
     margin: 10px;
     width: 300px;
     height: 150px;
+    border: 1px solid #ccc;
+}
+
+/* 메뉴관리 화면 */
+#tree-menus {
+    padding: 10px;
+    float: left;
+    width: 20%;
     display: inline-block;
     border: 1px solid #ccc;
 }
-/* 메뉴관리 화면 */
-#tree-menus {
-    width: 30%;
-    height: 800px;
-    border: 1px solid black;
+#menu-parent-form {
+    padding: 10px;
+    margin-left: 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+#menu-child-form {
+    padding: 10px;
+    margin-left: 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+.txt_box {
+    padding: 0 3px;
+    height: 25px;
+}
+#menu-parent-form > p {
+    line-height: 35px;
+}
+#menu-child-form > p {
+    line-height: 35px;
+}
+span.txt_label {
+    width: 70px;
+    text-align: center;
+    display: inline-block;
+}
+.btn_group {
+    padding: 5px 10px;
+    vertical-align: middle;
 }
