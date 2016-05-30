@@ -11,7 +11,7 @@ namespace SCT.Models.Helpers
     {
         public List<User> LoginCheck(string id, string password)
         {
-            string sql = string.Format("SELECT NAME, ROLE, ENABLED FROM USERS WHERE ID = '{0}' AND PASSWORD = '{1}'", id, password);
+            string sql = "USP_LOGIN";
 
             List<User> userList;
             SetConnectionString();
@@ -19,6 +19,9 @@ namespace SCT.Models.Helpers
             {
                 connection.Open();
                 command = new SqlCommand(sql, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ID", id);
+                command.Parameters.AddWithValue("@PASSWORD", password);
                 reader = command.ExecuteReader();
 
                 User user;
@@ -27,8 +30,7 @@ namespace SCT.Models.Helpers
                 {
                     user = new User();
                     user.Name = reader[0].ToString();
-                    user.Role = reader[1].ToString();
-                    user.Enabled = reader[2].ToString();
+                    user.Enabled = reader[1].ToString();
                     userList.Add(user);
                 }
                 connection.Close();

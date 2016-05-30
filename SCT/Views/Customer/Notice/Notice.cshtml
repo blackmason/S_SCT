@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Notice";
+    Layout = "~/Views/_Layouts/MainLayout.cshtml";
+}
+
+<style>
+    .tbl_bbs_list {margin:20px auto; width:80%; border-collapse: collapse;}
+    .tbl_bbs_list tr {border-bottom: 1px solid #ccc;}
+    .tbl_bbs_list tr:nth-child(1) {border-bottom: 4px solid #ccc;}
+    .tbl_bbs_list tr:hover {background-color: #efefef;}
+    .tbl_bbs_list th {height: 40px; background-color: #eee;}
+    .tbl_bbs_list th:nth-child(1) {width: 10%}
+    .tbl_bbs_list th:nth-child(2) {width: 75%}
+    .tbl_bbs_list th:nth-child(3) {width: 15%}
+    .tbl_bbs_list td {height: 35px; text-align: center;}
+    .tbl_bbs_list td:nth-child(2) {text-align: left;}
+    .btn_span {color: black; text-decoration: none;}
+    td a {color: black; text-decoration: none;}
+    td a:visited {color: black; text-decoration: none;}
+</style>
+
+<h2>Notice</h2>
+<a href="/Customer/Notice/Write"><span class="btn_span">Write</span></a>
+<table class="tbl_bbs_list">
+    <tr>
+        <th>No</th>
+        <th>제목</th>
+        <th>작성날짜</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (0 == @Model.Count)
+        {
+            <tr><td>자료가 없습니다.</td></tr>
+        }
+        else
+        {
+            <tr>
+                <td>@item.No</td>
+                <td><a href="/Customer/Notice/View/@item.No">@item.Subject</a></td>
+                <td>@item.Created</td>
+            </tr>
+        }
+
+    }
+</table>

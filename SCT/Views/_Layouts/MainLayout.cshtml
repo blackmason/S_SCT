@@ -8,7 +8,9 @@
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="~/Common/Styles/BaseStyle.css" />
-    <script src="~/Common/Scripts/plugin/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Common/plugin/Daumeditor/css/editor.css" />
+    <script src="~/Common/plugin/Daumeditor/js/editor_loader.js?environment=development" type="text/javascript"></script>
+    <script src="~/Common/plugin/jquery-1.11.3.min.js"></script>
     <script src="~/Common/Scripts/MenuScript.js"></script>
     <script src="~/Common/Scripts/LoginScript.js"></script>
     <title>MainLayout</title>
@@ -32,7 +34,7 @@
         <div id="mid-navi">
             <div class="width_guide">
                 <div id="search-area">
-                    <input type="text" name="searchWord" id="search-word" /><button type="button" id="search-btn">Search</button>
+                    <input type="text" name="searchWord" id="search-word" /><input type="button" id="search-btn" value="Search" />
                 </div>
                 <div id="menus-area">
                     <ul id="main-menus">

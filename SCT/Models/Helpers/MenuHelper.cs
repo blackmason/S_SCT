@@ -12,7 +12,7 @@ namespace SCT.Models.Helpers
         /* 전체메뉴 가져오기 */
         public List<Menu> GetAllMenus()
         {
-            string sql = "SELECT CODE, P_CODE, NAME, URL, ROLE FROM MENUS";
+            string sql = "SELECT CODE, P_CODE, NAME, URL FROM COMM_MENUS";
 
             SetConnectionString();
             Menu menus;
@@ -30,7 +30,6 @@ namespace SCT.Models.Helpers
                     menus.ParentCode = reader[1].ToString();
                     menus.Name = reader[2].ToString();
                     menus.Url = reader[3].ToString();
-                    menus.Role = reader[4].ToString();
                     menuList.Add(menus);
                 }
                 connection.Close();

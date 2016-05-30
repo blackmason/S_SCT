@@ -92,7 +92,7 @@ a, a:visited {
 }
 
 /* 메뉴관리 화면 */
-#tree-menus {
+#menus-view {
     padding: 10px;
     float: left;
     width: 20%;
@@ -129,4 +129,19 @@ span.txt_label {
 .btn_group {
     padding: 5px 10px;
     vertical-align: middle;
+}
+p {
+    text-align: right;
+}
+
+/* 메뉴 보이기 */
+#main-menus, #main-menus ul {
+    list-style: none;
+    font-size: 14px;
+    border: 1px solid red;
+}
+#main-menus > li {
+    line-height: 25px;
+}
+#main-menus > ul {
 }

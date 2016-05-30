@@ -39,7 +39,6 @@ html, body {
 }
 #menus-area {
     line-height: 45px;
-    /*border: 1px solid red;*/
 }
 #contents {
     margin: 0 auto;
@@ -63,7 +62,6 @@ html, body {
     text-align: right;
 }
 
-/* 메뉴 스타일 */
 /* 메인메뉴 */
 #main-menus {
     list-style: none;
@@ -77,6 +75,7 @@ html, body {
 }
 li > ul {
     display: none;
+    z-index: 100;
 }
 #main-menus li:hover {
     background-color: #005E85;
@@ -96,6 +95,7 @@ li > ul {
 .btn_span {
     line-height: 25px;
     vertical-align: middle;
+    cursor: pointer;
 }
 .btn_home {
     float: left;
@@ -106,4 +106,26 @@ li > ul {
 a, a:visited {
     text-decoration: none;
     color: white;
+}
+
+.wrapper {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    border: 1px solid red;
+}
+#notice {
+    width: 50%;
+    min-height: 250px;
+    display: inline-block;
+}
+#estimate {
+    width: 50%;
+    min-height: 250px;
+    display: inline-block;
+}
+#popular-prod {
+    margin: auto;
+    min-height: 250px;
+    border: 1px solid #ccc;
 }
