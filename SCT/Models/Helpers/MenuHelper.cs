@@ -12,7 +12,7 @@ namespace SCT.Models.Helpers
         /* 전체메뉴 가져오기 */
         public List<Menu> GetAllMenus()
         {
-            string sql = "SELECT CODE, P_CODE, NAME, URL FROM COMM_MENUS";
+            string sql = "SELECT CODE, P_CODE, NAME, URL FROM COMM_MENU";
 
             SetConnectionString();
             Menu menus;

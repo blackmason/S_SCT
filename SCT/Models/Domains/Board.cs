@@ -7,6 +7,8 @@ namespace SCT.Models.Domains
 {
     public class Board
     {
+        private string created;
+
         public string No { get; set; }
         public string Category { get; set; }
         public string Fixed { get; set; }

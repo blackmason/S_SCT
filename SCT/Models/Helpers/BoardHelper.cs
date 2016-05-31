@@ -20,7 +20,21 @@ namespace SCT.Models.Helpers
         public List<Board> GetAllContents()
         {
             string sql = "SELECT NO, CATEGORY, FIXED, SUBJECT, CREATED FROM COMM_NOTICE ORDER BY NO DESC";
-            
+
+            /*
+                SELECT
+	                NO
+	                , CATEGORY
+	                , FIXED
+	                , SUBJECT
+	                , (	CASE
+			                WHEN DATEDIFF(D, CREATED, GETDATE()) >= 1 THEN CONVERT(CHAR(10), CREATED, 120)
+			                ELSE LEFT(CONVERT(CHAR(12), CREATED, 114), 5)
+		                END	) AS CREATED
+                FROM
+	                COMM_NOTICE
+             */
+
             SetConnectionString();
             List<Board> bbsList = new List<Board>();
             Board bbs;
@@ -49,7 +63,9 @@ namespace SCT.Models.Helpers
 
         public int AddContents(string subject, string contents)
         {
-            string sql = string.Format("INSERT INTO COMM_NOTICE (SUBJECT, CONTENTS) VALUES ('{0}','{1}')", subject, contents);
+            string revContents = contents.Replace("'", "''");
+            
+            string sql = string.Format("INSERT INTO COMM_NOTICE (SUBJECT, CONTENTS) VALUES ('{0}','{1}')", subject, revContents);
 
             int line;
             SetConnectionString();
@@ -66,7 +82,7 @@ namespace SCT.Models.Helpers
 
         public Board GetContents(int? id)
         {
-            string sql = string.Format("SELECT SUBJECT, CONTENTS, CREATED FROM COMM_NOTICE WHERE NO = {0}", id);
+            string sql = string.Format("SELECT SUBJECT, CONTENTS, LEFT(CONVERT(CHAR(19), CREATED, 120), 16) FROM COMM_NOTICE WHERE NO = {0}", id);
 
             SetConnectionString();
             Board bbs = new Board();
