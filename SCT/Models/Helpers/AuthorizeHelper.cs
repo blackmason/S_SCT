@@ -11,7 +11,7 @@ namespace SCT.Models.Helpers
     {
         public List<User> LoginCheck(string id, string password)
         {
-            string sql = "USP_LOGIN";
+            string sql = "LOGIN_USP";
 
             List<User> userList;
             SetConnectionString();

@@ -82,7 +82,7 @@ namespace SCT.Models.Helpers
 
         public Board GetContents(int? id)
         {
-            string sql = string.Format("SELECT SUBJECT, CONTENTS, LEFT(CONVERT(CHAR(19), CREATED, 120), 16) FROM COMM_NOTICE WHERE NO = {0}", id);
+            string sql = string.Format("SELECT SUBJECT, CONTENTS, AUTHOR, LEFT(CONVERT(CHAR(19), CREATED, 120), 16) FROM COMM_NOTICE WHERE NO = {0}", id);
 
             SetConnectionString();
             Board bbs = new Board();
@@ -96,7 +96,8 @@ namespace SCT.Models.Helpers
                 {
                     bbs.Subject = reader[0].ToString();
                     bbs.Contents = reader[1].ToString();
-                    bbs.Created = reader[2].ToString();
+                    bbs.Author = reader[2].ToString();
+                    bbs.Created = reader[3].ToString();
                 }
 
                 connection.Close();

@@ -3,8 +3,31 @@
     Layout = "~/Views/_Layouts/MainLayout.cshtml";
 }
 
+<style>
+    .tbl_bbs {margin: auto; width: 95%; border: 1px solid #ccc; border-collapse:collapse;}
+    .tbl_bbs tr {border: 1px solid #ccc;}
+    .tbl_bbs th {width: 10%; height:25px; background-color: #f0f0f0;}
+    .td_contents {padding: 10px 10px;}
+    .td_contents:nth-child(4) {width: 100px; text-align:center;}
+    .contents_body {padding: 10px 20px; min-height: 500px; max-height: 900px; display: block;}
+</style>
+
 <h2>View</h2>
 
-<h1>@Model.Subject</h1>
-<h1>@Model.Contents</h1>
-<h1>@Model.Created</h1>
+<table class="tbl_bbs">
+    <tr>
+        <th>작성자</th>
+        <td class="td_contents"><span>@Model.Author</span></td>
+        <th>작성일</th>
+        <td class="td_contents"><span>@Model.Created</span></td>
+    </tr>
+    <tr>
+        <th>제목</th>
+        <td class="td_contents"><span>@Model.Subject</span></td>
+        <th>조회수</th>
+        <td class="td_contents"><span>&nbsp;</span></td>
+    </tr>
+    <tr>
+        <td colspan="4" class="td_contents"><span class="contents_body">@Html.Raw(@Model.Contents)</span></td>
+    </tr>
+</table>

@@ -14,6 +14,7 @@ namespace SCT.Models.Domains
         public string Fixed { get; set; }
         public string Subject { get; set; }
         public string Contents { get; set; }
+        public string Author { get; set; }
         public string Created { get; set; }
     }
 }
