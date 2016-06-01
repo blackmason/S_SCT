@@ -28,12 +28,12 @@
 
 <div class="bbs_wrapper">
     <a href="/Customer/Notice"><span class="btn_bbs_span">목록</span></a>
-    <a href="/Customer/Notice"><span class="btn_bbs_span">수정</span></a>
-    <a href="/Customer/Notice/Delete/@Model.No"><span class="btn_bbs_span">삭제</span></a>
+    <a href="/Customer/Notice/Edit/@Model.No"><span class="btn_bbs_span">수정</span></a>
+    <a href="/Customer/Notice/Delete/@Model.No"><span class="btn_bbs_span btn_delete">삭제</span></a>
 </div>
 <script>
     $(document).ready(function () {
-        $('.btn_bbs_span').click(function () {
+        $('.btn_delete').click(function () {
             var r = confirm("삭제?")
 
             if (r == true) {

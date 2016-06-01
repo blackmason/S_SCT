@@ -18,10 +18,14 @@ namespace SCT.Controllers
             {
                 return View("Notice/Write");
             }
-            else if (mode == "Update" && id != null)
+            else if (mode == "Edit" && id != null)
             {
-                string path = string.Format("Notice/{0}/{1}", mode, id);
-                return View(path);
+                string bbsId = "COMM_NOTICE";
+                BoardHelper helper = new BoardHelper();
+                var result = helper.EditContent(bbsId, id);
+
+                string path = string.Format("Notice/{0}", mode);
+                return View(path, result);
             }
             else if (mode == "View" && id != null)
             {
@@ -34,7 +38,7 @@ namespace SCT.Controllers
             {
                 string bbsId = "COMM_NOTICE";
                 string path = string.Format("DeleteNotice/{0}/{1}", bbsId, id);
-                return RedirectToAction("DeleteNotice","Customer"); // 요기 수정해야됨
+                return RedirectToAction(path,"Customer"); // 요기 수정해야됨
             }
             else
             {
@@ -67,18 +71,19 @@ namespace SCT.Controllers
             }
         }
 
-        public ActionResult DeleteNotice(string bbsId, int id)
+        public ActionResult DeleteNotice(string mode, int? id)
         {
             BoardHelper helper = new BoardHelper();
-            var result = helper.DeleteContent(bbsId, id);
+            var result = helper.DeleteContent(mode, id);
+            string referrerAddr = Request.UrlReferrer.ToString();
 
             if (0 != result)
             {
-                return RedirectToAction("/Customer/Notice","Customer");
+                return RedirectToAction("Notice","Customer");
             }
             else
             {
-                return View(Request.UrlReferrer);
+                return Redirect(referrerAddr);
             }
         }
 

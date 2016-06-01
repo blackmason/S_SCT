@@ -13,7 +13,7 @@
 .btn_bbs_span {padding: 5px 10px; color: black; text-decoration: none; background-color: #eee; border:1px solid #ccc;}
 td a {color: black; text-decoration: none;}
 td a:visited {color: black; text-decoration: none;}
-.search_key {padding: 4px 3px; width:250px;}
+.search_key {padding: 5px 3px; width:250px;}
 .btn_search {padding: 5px 10px; background-color:#eee; border: 1px solid #ccc;}
 .bbs_wrapper .search_area {float:left; display:inline-block;}
 .bbs_wrapper .page_area {margin:10px; text-align: center;}

@@ -104,7 +104,7 @@ namespace SCT.Models.Helpers
         }
 
         // 게시물 삭제
-        public int DeleteContent(string bbsId, int id)
+        public int DeleteContent(string bbsId, int? id)
         {
             string sql = string.Format("DELETE FROM {0} WHERE NO = {1}", bbsId, id);
 
@@ -119,6 +119,31 @@ namespace SCT.Models.Helpers
             }
 
             return result;
+        }
+
+        public Board EditContent(string bbsId, int? id)
+        {
+            string sql = "NOTICE_USP";
+
+            Board bbs = new Board();
+            SetConnectionString();
+            using (connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@NO", id);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    bbs.Subject = reader["SUBJECT"].ToString();
+                    bbs.Contents = reader["CONTENTS"].ToString();
+                }
+                connection.Close();
+            }
+
+            return bbs;
         }
     }
 }
