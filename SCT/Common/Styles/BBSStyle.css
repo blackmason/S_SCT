@@ -1,0 +1,27 @@
+﻿
+/* List */
+.tbl_bbs_list {margin:20px auto; width:95%; border-collapse: collapse;}
+.tbl_bbs_list tr {border-bottom: 1px solid #ccc;}
+.tbl_bbs_list tr:nth-child(1) {border-bottom: 3px solid #ccc;}
+.tbl_bbs_list tr:hover {background-color: #f0f0f0;}
+.tbl_bbs_list th {height: 40px; background-color: #eee;}
+.tbl_bbs_list th:nth-child(1) {width: 7%}
+.tbl_bbs_list th:nth-child(2) {width: 70%}
+.tbl_bbs_list td {height: 35px; text-align: center;}
+.tbl_bbs_list td:nth-child(2) {text-align: left;}
+.bbs_wrapper {margin: auto; width: 95%; text-align:right; /*border: 1px solid red;*/}
+.btn_bbs_span {padding: 5px 10px; color: black; text-decoration: none; background-color: #eee; border:1px solid #ccc;}
+td a {color: black; text-decoration: none;}
+td a:visited {color: black; text-decoration: none;}
+.search_key {padding: 4px 3px; width:250px;}
+.btn_search {padding: 5px 10px; background-color:#eee; border: 1px solid #ccc;}
+.bbs_wrapper .search_area {float:left; display:inline-block;}
+.bbs_wrapper .page_area {margin:10px; text-align: center;}
+
+/* View */
+.tbl_bbs {margin:20px auto; width: 95%; border: 1px solid #ccc; border-collapse:collapse;}
+.tbl_bbs tr {border: 1px solid #ccc;}
+.tbl_bbs th {width: 10%; height:25px; background-color: #f0f0f0;}
+.td_contents {padding: 10px 10px;}
+.td_contents:nth-child(4) {width: 100px; text-align:center;}
+.contents_body {padding: 10px 20px; min-height: 500px; display: block; overflow-x:auto;}

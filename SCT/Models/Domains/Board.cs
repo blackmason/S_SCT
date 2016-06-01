@@ -16,5 +16,6 @@ namespace SCT.Models.Domains
         public string Contents { get; set; }
         public string Author { get; set; }
         public string Created { get; set; }
+        public string Visit { get; set; }
     }
 }

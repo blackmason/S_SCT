@@ -1,30 +1,18 @@
 ﻿@{
-    ViewBag.Title = "Notice";
+    ViewBag.Title += " / 공지사항";
     Layout = "~/Views/_Layouts/MainLayout.cshtml";
 }
 
-<style>
-    .tbl_bbs_list {margin:20px auto; width:95%; border-collapse: collapse;}
-    .tbl_bbs_list tr {border-bottom: 1px solid #ccc;}
-    .tbl_bbs_list tr:nth-child(1) {border-bottom: 3px solid #ccc;}
-    .tbl_bbs_list tr:hover {background-color: #f0f0f0;}
-    .tbl_bbs_list th {height: 40px; background-color: #eee;}
-    .tbl_bbs_list th:nth-child(1) {width: 10%}
-    .tbl_bbs_list th:nth-child(2) {width: 75%}
-    .tbl_bbs_list th:nth-child(3) {width: 15%}
-    .tbl_bbs_list td {height: 35px; text-align: center;}
-    .tbl_bbs_list td:nth-child(2) {text-align: left;}
-    .btn_span {color: black; text-decoration: none;}
-    td a {color: black; text-decoration: none;}
-    td a:visited {color: black; text-decoration: none;}
-</style>
+<h3>@ViewBag.Title</h3>
+<div class="bbs_wrapper">
+    <a href="/Customer/Notice/Write"><span class="btn_bbs_span">Write</span></a>
+</div>
 
-<h2>Notice</h2>
-<a href="/Customer/Notice/Write"><span class="btn_span">Write</span></a>
 <table class="tbl_bbs_list">
     <tr>
         <th>No</th>
         <th>제목</th>
+        <th>작성자</th>
         <th>작성날짜</th>
     </tr>
 
@@ -39,9 +27,21 @@
             <tr>
                 <td>@item.No</td>
                 <td><a href="/Customer/Notice/View/@item.No">@item.Subject</a></td>
+                <td>@item.Author</td>
                 <td>@item.Created</td>
             </tr>
         }
-
     }
 </table>
+
+<div class="bbs_wrapper">
+    <div class="search_area">
+        <input type="text" name="searchKey" class="search_key" />
+        <input type="button" class="btn_search" value="검색" />
+    </div>
+    <a href="/Customer/Notice/Write"><span class="btn_bbs_span">Write</span></a>
+</div>
+<br />
+<div class="bbs_wrapper">
+    <div class="page_area">[1][2][3][4]</div>
+</div>

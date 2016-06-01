@@ -449,6 +449,7 @@
     <Content Include="Common\plugin\EasyTree\skin-xp\vline.gif" />
     <Content Include="Common\plugin\jquery-1.11.3.min.js" />
     <Content Include="Common\Styles\BaseStyle.css" />
+    <Content Include="Common\Styles\BBSStyle.css" />
     <Content Include="Common\Styles\LoginStyle.css" />
     <Content Include="Common\Styles\BruceAlmightyStyle.css" />
     <Content Include="Global.asax" />

@@ -559,6 +559,17 @@
         }
         return true;
     }
+
+        function resetContents(editor) {
+            var subject = document.getElementById('tx-subject');
+            var c = confirm('작성한 내용이 지워집니다. 계속 진행 하시겠습니까?');
+
+            if (c == true) {
+                location.href = "/Customer/Notice";
+            } else {
+                return false;
+            }
+        }
 </script>
 <div class="btn_group">
     <input type="button" onclick="saveContent()" class="btn_submit btn_confirm" value="확인" />
@@ -610,21 +621,6 @@
             }(),
             "content": document.getElementById("sample_contents_source") /* 내용 문자열, 주어진 필드(textarea) 엘리먼트 */
         });
-    }
-
-    function resetContents() {
-        var content = document.getElementById('tx_canvas_wysiwyg');
-        var subject = document.getElementById('tx-subject');
-        //var r = confirm('작성한 내용이 지워집니다. 계속 진행 하시겠습니까?');
-
-        //if (r == true) {
-        //    subject.value = '';
-        //    content.value = '';
-        //} else {
-        //    false;
-        //}
-
-        alert(content.value);
     }
 </script>
 @*<div><button onclick='loadContent()'>SAMPLE - load contents to editor</button></div>*@
