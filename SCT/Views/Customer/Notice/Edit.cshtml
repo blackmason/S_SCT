@@ -7,7 +7,7 @@
     decsription
     등록하기 위한 Form으로 상황에 맞게 수정하여 사용한다. Form 이름은 에디터를 생성할 때 설정값으로 설정한다.
 -->
-<form name="tx_editor_form" id="tx_editor_form" action="/Customer/SubmitNotice/Write" method="post" accept-charset="utf-8">
+<form name="tx_editor_form" id="tx_editor_form" action="/Customer/SubmitNotice/Edit" method="post" accept-charset="utf-8">
     <table border="1" id="tbl-editor-form" >
         <tr>
             <th>제목</th>
@@ -563,10 +563,9 @@
         }
         return true;
     }
-
         function resetContents(editor) {
             var subject = document.getElementById('tx-subject');
-            var c = confirm('작성한 내용이 지워집니다. 계속 진행 하시겠습니까?');
+            var c = confirm('수정된 내용이 저장되지 않습니다. 계속 진행 하시겠습니까?');
 
             if (c == true) {
                 location.href = "/Customer/Notice";
@@ -581,15 +580,6 @@
 </div>
 <!-- End: Saving Contents -->
 <!-- Sample: Loading Contents -->
-<textarea id="sample_contents_source" style="display:none;">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p style="text-align: center;">
-        <img src="http://cfile273.uf.daum.net/image/2064CD374EE1ACCB0F15C8" class="tx-daum-image" style="clear: none; float: none;" />
-    </p>﻿
-    <p>
-        <a href="http://cfile297.uf.daum.net/attach/207C8C1B4AA4F5DC01A644"><img src="snapshot/~/Common/plugin/Editor/images/icon/p_gif_s.gif" /> editor_bi.gif</a>
-    </p>
-</textarea>
 <script type="text/javascript">
     function loadContent() {
         var attachments = {};
@@ -614,6 +604,7 @@
                 'filesize': 640
             }
         });
+        var content = '@Html.Raw(@Model.Contents)'
         /* 저장된 컨텐츠를 불러오기 위한 함수 호출 */
         Editor.modify({
             "attachments": function () { /* 저장된 첨부가 있을 경우 배열로 넘김, 위의 부분을 수정하고 아래 부분은 수정없이 사용 */
@@ -624,7 +615,7 @@
                 return allattachments;
             }(),
             //"content": document.getElementById("sample_contents_source") /* 내용 문자열, 주어진 필드(textarea) 엘리먼트 */
-            "content": "@Model.Contents"
+            "content": content
         });
     }
 </script>

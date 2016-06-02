@@ -10,7 +10,7 @@ namespace SCT.Controllers
 {
     public class CustomerController : Controller
     {
-        public ActionResult Notice(string mode, int? id)
+        public ActionResult Notice(string mode, int? id)  //게시판 형태의 구속되지 않고, 메서드를 사용하려고 함. 수정요함 CRUD
         {
             ViewBag.Title = "고객센터";
 
@@ -51,9 +51,10 @@ namespace SCT.Controllers
         [ValidateInput(false)]
         public ActionResult SubmitNotice(string mode, string id, string subject, string contents)
         {
+            BoardHelper helper;
             if (mode == "Write")
             {
-                BoardHelper helper = new BoardHelper();
+                helper = new BoardHelper();
                 var result = helper.AddContents(subject, contents);
 
                 if (0 != result)
@@ -65,6 +66,10 @@ namespace SCT.Controllers
                     return View("Notice/Notice");
                 }
             }
+            //else if (mode == "Edit")      // 수정모드 업데이트 해야됨.
+            //{
+            //    helper.
+            //}
             else
             {
                 return View("Notice/Notice");
@@ -75,7 +80,7 @@ namespace SCT.Controllers
         {
             BoardHelper helper = new BoardHelper();
             var result = helper.DeleteContent(mode, id);
-            string referrerAddr = Request.UrlReferrer.ToString();
+            string referrerAddr = Request.UrlReferrer.ToString(); //url을 숨겨야 할거 같음. 오류메시지 노출
 
             if (0 != result)
             {

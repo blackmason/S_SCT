@@ -464,11 +464,13 @@
                 lineHeight: "1.5", /*기본 줄간격 */
                 padding: "8px" /* 위지윅 영역의 여백 */
             },
+            selectedMode: "html",
             showGuideArea: false
         },
         events: {
             preventUnload: false
         },
+        
         sidebar: {
             attachbox: {
                 show: true,
@@ -561,10 +563,18 @@
     }
 
         function resetContents(editor) {
-            var subject = document.getElementById('tx-subject');
-            var c = confirm('작성한 내용이 지워집니다. 계속 진행 하시겠습니까?');
+            var subject = document.getElementById('tx-subject').value;
+            var content = Editor.getContent();
+            var validator = new Trex.Validator();
+            var confirms;
 
-            if (c == true) {
+            if (!validator.exists(subject) && !validator.exists(content)) {
+                location.href = "/Customer/Notice";
+            } else {
+                confirms = confirm('작성한 내용이 저장되지 않습니다. 계속 진행 하시겠습니까?');
+            }
+            
+            if (confirms == true) {
                 location.href = "/Customer/Notice";
             } else {
                 return false;
