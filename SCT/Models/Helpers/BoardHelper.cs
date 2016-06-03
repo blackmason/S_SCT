@@ -72,7 +72,7 @@ namespace SCT.Models.Helpers
         }
 
         // 게시물 보기
-        public Board GetContents(int? id)
+        public Board GetContents(string id)
         {
             //string sql = string.Format("SELECT SUBJECT, CONTENTS, AUTHOR, LEFT(CONVERT(CHAR(19), CREATED, 120), 16), VISIT FROM COMM_NOTICE WHERE NO = {0}", id);
             // 어떤 bbs 타입인지 인자로 구분하고, 프로시저 실행 할 것.
@@ -121,7 +121,7 @@ namespace SCT.Models.Helpers
             return result;
         }
 
-        public Board EditContent(string bbsId, int? id)
+        public Board EditContent(string bbsId, int? id)         //업데이트문으로 교체
         {
             string sql = "NOTICE_USP";
 

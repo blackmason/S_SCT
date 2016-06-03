@@ -563,12 +563,13 @@
         }
         return true;
     }
+        // 수정모드에서 취소 버튼 눌렀을 때 경고
         function resetContents(editor) {
             var subject = document.getElementById('tx-subject');
             var c = confirm('수정된 내용이 저장되지 않습니다. 계속 진행 하시겠습니까?');
 
             if (c == true) {
-                location.href = "/Customer/Notice";
+                location.href = parent.document.referrer;
             } else {
                 return false;
             }
@@ -580,6 +581,8 @@
 </div>
 <!-- End: Saving Contents -->
 <!-- Sample: Loading Contents -->
+<textarea id="modify-contents" style="display:none;">@Model.Contents</textarea>
+
 <script type="text/javascript">
     function loadContent() {
         var attachments = {};
@@ -604,7 +607,7 @@
                 'filesize': 640
             }
         });
-        var content = '@Html.Raw(@Model.Contents)'
+        var content = ''
         /* 저장된 컨텐츠를 불러오기 위한 함수 호출 */
         Editor.modify({
             "attachments": function () { /* 저장된 첨부가 있을 경우 배열로 넘김, 위의 부분을 수정하고 아래 부분은 수정없이 사용 */
@@ -615,7 +618,7 @@
                 return allattachments;
             }(),
             //"content": document.getElementById("sample_contents_source") /* 내용 문자열, 주어진 필드(textarea) 엘리먼트 */
-            "content": content
+            "content": document.getElementById('modify-contents')
         });
     }
 </script>

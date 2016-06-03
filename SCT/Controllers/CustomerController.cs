@@ -10,48 +10,44 @@ namespace SCT.Controllers
 {
     public class CustomerController : Controller
     {
-        public ActionResult Notice(string mode, int? id)  //게시판 형태의 구속되지 않고, 메서드를 사용하려고 함. 수정요함 CRUD
+        /*
+         * 고객지원/공지사항
+         */
+        public ActionResult Notice(string mode, string id)
         {
-            ViewBag.Title = "고객센터";
+            ViewBag.Title = "공지사항";
+            string url;
+            BoardHelper helper;
 
-            if (mode == "Write")
+            if (null != mode && null != id)
             {
-                return View("Notice/Write");
-            }
-            else if (mode == "Edit" && id != null)
-            {
-                string bbsId = "COMM_NOTICE";
-                BoardHelper helper = new BoardHelper();
-                var result = helper.EditContent(bbsId, id);
-
-                string path = string.Format("Notice/{0}", mode);
-                return View(path, result);
-            }
-            else if (mode == "View" && id != null)
-            {
-                BoardHelper helper = new BoardHelper();
+                helper = new BoardHelper();
                 var result = helper.GetContents(id);
-                string path = string.Format("Notice/{0}", mode);
-                return View(path, result);
+                url = string.Format("Notice/{0}", mode);
+                return View(url, result);
             }
-            else if (mode == "Delete" && id != null)
+            else if (null != mode && null == id)
             {
-                string bbsId = "COMM_NOTICE";
-                string path = string.Format("DeleteNotice/{0}/{1}", bbsId, id);
-                return RedirectToAction(path,"Customer"); // 요기 수정해야됨
+                url = string.Format("Notice/{0}", mode);
+                return View(url);
             }
             else
             {
-                BoardHelper helper = new BoardHelper();
+                helper = new BoardHelper();
                 var result = helper.GetAllContents();
                 return View("Notice/Notice", result);
             }
         }
 
+        /*
+         * 글 등록
+         */
         [ValidateInput(false)]
-        public ActionResult SubmitNotice(string mode, string id, string subject, string contents)
+        public ActionResult OnSubmit(string mode, string id, string subject, string contents)       //공지사항에 구속되지 않게 구현 보드아이디?
         {
+            string bbsId = Request["bbsId"];
             BoardHelper helper;
+
             if (mode == "Write")
             {
                 helper = new BoardHelper();
@@ -59,11 +55,11 @@ namespace SCT.Controllers
 
                 if (0 != result)
                 {
-                    return RedirectToAction("Notice", "Customer");
+                    return RedirectToAction(bbsId, "Customer");
                 }
                 else
                 {
-                    return View("Notice/Notice");
+                    return View("Notice/Notice");       //글 등록 실패 시 액션 구현해야 함. 지금은 공지사항 메인으로 그냥 감.
                 }
             }
             //else if (mode == "Edit")      // 수정모드 업데이트 해야됨.
