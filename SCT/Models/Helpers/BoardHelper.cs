@@ -104,7 +104,7 @@ namespace SCT.Models.Helpers
         }
 
         // 게시물 삭제
-        public int DeleteContent(string bbsId, int? id)
+        public int DeleteContents(string bbsId, string id)
         {
             string sql = string.Format("DELETE FROM {0} WHERE NO = {1}", bbsId, id);
 
@@ -121,29 +121,23 @@ namespace SCT.Models.Helpers
             return result;
         }
 
-        public Board EditContent(string bbsId, int? id)         //업데이트문으로 교체
+        public int EditContents(string bbsId, string id, string subject, string contents)         //업데이트문으로 교체
         {
-            string sql = "NOTICE_USP";
+            string sql = string.Format("UPDATE {0} SET SUBJECT = '{1}', CONTENTS = '{2}' WHERE NO = '{3}'", bbsId, subject, contents, id);
+            //string sql = "NOTICE_USP";
 
+            int result;
             Board bbs = new Board();
             SetConnectionString();
             using (connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 command = new SqlCommand(sql, connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@NO", id);
-                reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    bbs.Subject = reader["SUBJECT"].ToString();
-                    bbs.Contents = reader["CONTENTS"].ToString();
-                }
+                result = command.ExecuteNonQuery();
                 connection.Close();
             }
 
-            return bbs;
+            return result;
         }
     }
 }
