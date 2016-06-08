@@ -58,17 +58,17 @@ namespace SCT.Models.Helpers
             
             string sql = string.Format("INSERT INTO COMM_NOTICE (SUBJECT, CONTENTS) VALUES ('{0}','{1}')", subject, revContents);
 
-            int line;
+            int result;
             SetConnectionString();
             using (connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 command = new SqlCommand(sql, connection);
-                line = command.ExecuteNonQuery();
+                result = command.ExecuteNonQuery();
                 connection.Close();
             }
 
-            return line;
+            return result;
         }
 
         // 게시물 보기
@@ -106,7 +106,8 @@ namespace SCT.Models.Helpers
         // 게시물 삭제
         public int DeleteContents(string bbsId, string id)
         {
-            string sql = string.Format("DELETE FROM {0} WHERE NO = {1}", bbsId, id);
+            string tblName = ReturnTblName(bbsId);
+            string sql = string.Format("DELETE FROM {0} WHERE NO = {1}", tblName, id);
 
             int result;
             SetConnectionString();
@@ -123,7 +124,8 @@ namespace SCT.Models.Helpers
 
         public int EditContents(string bbsId, string id, string subject, string contents)         //업데이트문으로 교체
         {
-            string sql = string.Format("UPDATE {0} SET SUBJECT = '{1}', CONTENTS = '{2}' WHERE NO = '{3}'", bbsId, subject, contents, id);
+            string tblName = ReturnTblName(bbsId);
+            string sql = string.Format("UPDATE {0} SET SUBJECT = '{1}', CONTENTS = '{2}' WHERE NO = '{3}'", tblName, subject, contents, id);
             //string sql = "NOTICE_USP";
 
             int result;
@@ -139,5 +141,49 @@ namespace SCT.Models.Helpers
 
             return result;
         }
+
+        public List<Board> SummaryData(string bbsId)
+        {
+            string tblName = ReturnTblName(bbsId);
+            string sql = string.Format("SELECT TOP 5 SUBJECT, CONVERT(CHAR(10), CREATED, 120) FROM {0} ORDER BY CREATED DESC", tblName);
+
+            List<Board> bbsList = new List<Board>();
+            Board bbs;
+            SetConnectionString();
+            using (connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    bbs = new Board();
+                    bbs.Subject = reader[0].ToString();
+                    bbs.Created = reader[1].ToString();
+                    bbsList.Add(bbs);
+                }
+                connection.Close();
+            }
+
+            return bbsList;
+        }
+
+        public string ReturnTblName(string bbsId)
+        {
+            string tblName;
+
+            if (" " == bbsId)           // 추후 수정 필요
+            {
+                tblName = "BBS_NOTICE";
+                return tblName;
+            }
+            else
+            {
+                return "COMM_NOTICE";
+            }
+        }
+
+        
     }
 }

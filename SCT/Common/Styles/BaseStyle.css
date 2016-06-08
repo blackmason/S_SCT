@@ -110,19 +110,51 @@ a, a:visited {
 
 .wrapper {
     margin: 20px auto;
-    width: 80%;
+    width: 85%;
     text-align: center;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
-#notice {
-    width: 50%;
-    min-height: 250px;
+#summary-notice {
+    margin: 0 10px;
+    width: 45%;
+    min-height: 150px;
+    text-align: left;
     display: inline-block;
 }
-#estimate {
-    width: 50%;
-    min-height: 250px;
+.summary-title {
+    padding: 0 5px;
+    line-height: 25px;
+    border-bottom: 2px solid #000;
+}
+.summary > ul {
+    list-style-type: none;
+}
+.summary > ul > li {
+    /*line-height: 25px;*/
+    border-bottom: 1px solid #ccc;
+}
+#summary-estimate {
+    margin: 0 10px;
+    width: 45%;
+    min-height: 150px;
+    text-align: left;
     display: inline-block;
+}
+.summary-subject {
+    padding: 0 5px;
+    width: 78%;
+    line-height: 26px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*border: 1px solid red;*/
+}
+.summary-created{
+    float: right;
+    padding: 0 5px;
+    line-height: 26px;
+    /*border: 1px solid orange;*/
 }
 #popular-prod {
     margin: auto;

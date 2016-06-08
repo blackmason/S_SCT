@@ -6,7 +6,31 @@
 <h2>Main</h2>
 
 <div class="wrapper">
-    <div id="notice">공지사항</div><div id="estimate">견적서</div>
+    <div id="summary-notice" class="summary">
+        <div class="summary-title">공지사항</div>
+        <ul>
+            @foreach (var item in @Model.BbsList)
+            {
+                <li>
+                    <span class="summary-subject">@item.Subject</span>
+                    <span class="summary-created">@item.Created</span>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div id="summary-estimate" class="summary">
+        <div class="summary-title">견적서</div>
+        <ul>
+            @foreach (var item in @Model.BbsList)
+            {
+                <li>
+                    <span class="summary-subject">@item.Subject</span>
+                    <span class="summary-created">@item.Created</span>
+                </li>
+            }
+        </ul>
+    </div>
 </div>
 
 <div class="wrapper">
