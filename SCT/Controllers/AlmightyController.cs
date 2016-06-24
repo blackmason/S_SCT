@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SCT.Models.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,7 +19,17 @@ namespace SCT.Controllers
 
         public ActionResult ManageMenu()
         {
-            return View();
+            MenuHelper helper = new MenuHelper();
+            var result = helper.GetAllMenus();
+            return View(result);
+        }
+
+        public JsonResult GetMenus(string code)
+        {
+            MenuHelper helper = new MenuHelper();
+            var result = helper.GetMenus(code);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
     }

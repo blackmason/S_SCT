@@ -3,14 +3,34 @@
     Layout = "~/Views/_Layouts/AlmightyLayout.cshtml";
 }
 
-<h2>ManageMenu</h2>
+<h2>메뉴관리</h2>
 
-<div id="menus-view">
-    <ul id="main-menus">
+<table class="tbl_menus_list">
+    <tr>
+        <th>코드</th>
+        <th>상위코드</th>
+        <th>메뉴이름</th>
+        <th>URL</th>
+        <th>사용여부</th>
+        <th>수정날짜</th>
+        <th>만든날짜</th>
+    </tr>
+    
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td>@item.Code</td>
+            <td>@item.ParentCode</td>
+            <td><a href="/Almighty/GetMenus/@item.Code">@item.Name</a></td>
+            <td>@item.Url</td>
+            <td>@item.Enabled</td>
+            <td>@item.Modified</td>
+            <td>@item.Created</td>
+        </tr>
+    }
+</table>
 
-    </ul>
-</div>
-<div id="menu-parent-form">
+<div id="menu-parent-form">구조변경!!!
     <p><span class="txt_label">메뉴이름</span><input type="text" name="menuName" id="menu-name" class="txt_box" /></p>
     <p><span class="txt_label">메뉴코드</span><input type="text" name="menuCode" id="menu-code" class="txt_box" /></p>
     <p><span class="txt_label">부모메뉴</span><input type="text" name="menuName" id="parent-name" class="txt_box" /></p>
@@ -19,3 +39,26 @@
     <p><span class="txt_label">사용여부</span><input type="text" name="menuName" id="menu-enable" class="txt_box" /></p>
     <p><input type="button" class="btn_group" value="하위메뉴 추가" /></p>
 </div>
+
+<script>
+    $(document).ready(function () {
+        var code;
+        $('.tbl_menus_list a').click(function () {
+            code = $(this).attr('href');
+
+            $.ajax({
+                url: '/Almighty/GetMenus',
+                dataType: 'text',
+                data: code,
+                success: function (data) { 
+                    alert(data);
+                },
+                error: function(xhr, error, status){
+                    alert(xhr + ":" + error + ":" + status+ ":" + typeof(code));
+                }
+                    
+            });
+        });
+
+    });
+</script>

@@ -92,16 +92,36 @@ a, a:visited {
 }
 
 /* 메뉴관리 화면 */
-#menus-view {
-    padding: 10px;
-    float: left;
-    width: 20%;
-    display: inline-block;
-    border: 1px solid #ccc;
+.tbl_menus_list {
+    margin: 10px 30px;
+    width: 60%;
+    text-align: center;
+    border-collapse: collapse;
 }
+.tbl_menus_list tr {
+    border-bottom: 1px solid #ccc;
+}
+.tbl_menus_list tr:nth-child(1) {
+    border-bottom: 2px solid #ccc;
+}
+.tbl_menus_list tr:hover {
+    background-color: #f0f0f0;
+}
+.tbl_menus_list th {
+    height: 40px;
+    background-color: #eee;
+}
+.tbl_menus_list td {
+    height: 30px;
+}
+.tbl_menus_list td:nth-child(4){
+    width: 30%;
+}
+
+/* 메뉴정보 div */
 #menu-parent-form {
-    padding: 10px;
-    margin-left: 30px;
+    margin: 10px 30px 20px;
+    width: 60%;
     display: inline-block;
     border: 1px solid #ccc;
 }
@@ -132,16 +152,4 @@ span.txt_label {
 }
 p {
     text-align: right;
-}
-
-/* 메뉴 보이기 */
-#main-menus, #main-menus ul {
-    list-style: none;
-    font-size: 14px;
-    border: 1px solid red;
-}
-#main-menus > li {
-    line-height: 25px;
-}
-#main-menus > ul {
 }

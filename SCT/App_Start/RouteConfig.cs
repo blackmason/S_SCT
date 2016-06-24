@@ -16,7 +16,7 @@ namespace SCT
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{mode}/{id}",
-                defaults: new { controller = "Home", action = "Main", mode = UrlParameter.Optional , id = UrlParameter.Optional }
+                defaults: new { controller = "Almighty", action = "ManageMenu", mode = UrlParameter.Optional , id = UrlParameter.Optional }
             );
         }
     }
