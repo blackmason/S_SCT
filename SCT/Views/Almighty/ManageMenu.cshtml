@@ -18,10 +18,10 @@
     
     @foreach (var item in @Model)
     {
-        <tr>
+        <tr data-menu-code="@item.Code">
             <td>@item.Code</td>
             <td>@item.ParentCode</td>
-            <td><a href="/Almighty/GetMenus/@item.Code">@item.Name</a></td>
+            <td>@item.Name</td>
             <td>@item.Url</td>
             <td>@item.Enabled</td>
             <td>@item.Modified</td>
@@ -43,21 +43,21 @@
 <script>
     $(document).ready(function () {
         var code;
-        $('.tbl_menus_list a').click(function () {
-            code = $(this).attr('href');
+        $('.tbl_menus_list tr').click(function () {
+            code = $(this).data('menu-code');
 
             $.ajax({
                 url: '/Almighty/GetMenus',
-                dataType: 'text',
-                data: code,
-                success: function (data) { 
-                    alert(data);
+                data: { code: code },
+                success: function (data) {
+                    $('#menu-name').val(data.Name);
                 },
                 error: function(xhr, error, status){
                     alert(xhr + ":" + error + ":" + status+ ":" + typeof(code));
                 }
-                    
             });
+
+            return false;
         });
 
     });
