@@ -14,11 +14,11 @@ namespace SCT.Controllers
 
         public ActionResult Login()
         {
-            string id = Request["userId"];
+            string email = Request["userId"];
             string password = Request["userPass"];
 
             AuthorizeHelper auth = new AuthorizeHelper();
-            var result = auth.LoginCheck(id, password);
+            var result = auth.LoginCheck(email, password);
             
             if (0 == result.Count)
             {

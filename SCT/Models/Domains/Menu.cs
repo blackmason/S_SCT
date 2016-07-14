@@ -11,6 +11,7 @@ namespace SCT.Models.Domains
         public string ParentCode { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
+        public string Role { get; set; }
         public string Enabled { get; set; }
         public string Modified { get; set; }
         public string Created { get; set; }

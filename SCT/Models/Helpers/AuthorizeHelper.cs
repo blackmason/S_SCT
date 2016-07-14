@@ -9,7 +9,7 @@ namespace SCT.Models.Helpers
 {
     public class AuthorizeHelper : BaseDataAccessHelper
     {
-        public List<User> LoginCheck(string id, string password)
+        public List<User> LoginCheck(string email, string password)
         {
             string sql = "LOGIN_USP";
 
@@ -20,7 +20,7 @@ namespace SCT.Models.Helpers
                 connection.Open();
                 command = new SqlCommand(sql, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@ID", id);
+                command.Parameters.AddWithValue("@EMAIL", email);
                 command.Parameters.AddWithValue("@PASSWORD", password);
                 reader = command.ExecuteReader();
 
