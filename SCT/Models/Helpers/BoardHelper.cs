@@ -76,7 +76,7 @@ namespace SCT.Models.Helpers
         {
             //string sql = string.Format("SELECT SUBJECT, CONTENTS, AUTHOR, LEFT(CONVERT(CHAR(19), CREATED, 120), 16), VISIT FROM COMM_NOTICE WHERE NO = {0}", id);
             // 어떤 bbs 타입인지 인자로 구분하고, 프로시저 실행 할 것.
-            string sql = "NOTICE_VIEW_USP";
+            string sql = "NOTICE_USP";
 
             SetConnectionString();
             Board bbs = new Board();
@@ -180,7 +180,7 @@ namespace SCT.Models.Helpers
             }
             else
             {
-                return "BBS_NOTICE";
+                return "COMM_NOTICE";
             }
         }
 

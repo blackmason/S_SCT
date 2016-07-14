@@ -11,7 +11,6 @@
         <th>상위코드</th>
         <th>메뉴이름</th>
         <th>URL</th>
-        <th>접근권한</th>
         <th>사용여부</th>
         <th>수정날짜</th>
         <th>만든날짜</th>
@@ -24,7 +23,6 @@
             <td>@item.ParentCode</td>
             <td>@item.Name</td>
             <td>@item.Url</td>
-            <td>@item.Role</td>
             <td>@item.Enabled</td>
             <td>@item.Modified</td>
             <td>@item.Created</td>
@@ -32,28 +30,15 @@
     }
 </table>
 
-<table id="menu-detail-form">
-    <tr>
-        <th>이름</th>
-        <td><input type="text" name="menuName" id="menu-name" class="txt_box" /></td>
-        <th>메뉴코드</th>
-        <td><input type="text" name="menuName" id="menu-code" class="txt_box" /></td>
-        <th>부모메뉴</th>
-        <td><input type="text" name="menuName" id="menu-p-name" class="txt_box" /></td>
-        <th>부모코드</th>
-        <td><input type="text" name="menuName" id="menu-p-code" class="txt_box" /></td>
-    </tr>
-    <tr>
-        <th>URL</th>
-        <td><input type="text" id="menu-url" class="txt_box" /></td>
-        <th>권한</th>
-        <td><input type="text" id="menu-role" class="txt_box" /></td>
-        <th>사용여부</th>
-        <td><input type="text" id="menu-enabled" class="txt_box" /></td>
-        <td></td><td></td>
-    </tr>
-</table>
-
+<div id="menu-parent-form">구조변경!!!
+    <p><span class="txt_label">메뉴이름</span><input type="text" name="menuName" id="menu-name" class="txt_box" /></p>
+    <p><span class="txt_label">메뉴코드</span><input type="text" name="menuCode" id="menu-code" class="txt_box" /></p>
+    <p><span class="txt_label">부모메뉴</span><input type="text" name="menuName" id="parent-name" class="txt_box" /></p>
+    <p><span class="txt_label">URL</span><input type="text" name="menuName" id="menu-url" class="txt_box" /></p>
+    <p><span class="txt_label">권한</span><input type="text" name="menuName" id="menu-role" class="txt_box" /></p>
+    <p><span class="txt_label">사용여부</span><input type="text" name="menuName" id="menu-enable" class="txt_box" /></p>
+    <p><input type="button" class="btn_group" value="하위메뉴 추가" /></p>
+</div>
 
 <script>
     $(document).ready(function () {
@@ -66,44 +51,14 @@
                 data: { code: code },
                 success: function (data) {
                     $('#menu-name').val(data.Name);
-                    $('#menu-code').val(data.Code);
-                    GetParentName(data.ParentCode);
-                    $('#menu-p-code').val(data.ParentCode);
-                    
-                    if (data.Url.length <= 0) {
-                        $('#menu-url').val('없음');
-                    }
-                    else {
-                        $('#menu-url').val(data.Url);
-                    }
-                    
-                    $('#menu-role').val(data.Role);
-                    $('#menu-enabled').val(data.Enabled);
                 },
-                error: function (xhr, error, status) {
-                    alert(xhr + ":" + error + ":" + status + ":" + typeof (code));
+                error: function(xhr, error, status){
+                    alert(xhr + ":" + error + ":" + status+ ":" + typeof(code));
                 }
             });
 
             return false;
         });
+
     });
-
-    /* 부모메뉴 이름 가져오기 */
-    function GetParentName(parentCode) {
-        var parentName;
-
-        if (parentCode == '0') {
-            $('#menu-p-name').val('최상위 메뉴');
-        }
-        else {
-            $.ajax({
-                url: '/Almighty/GetMenus',
-                data: { code: parentCode },
-                success: function (parent) {
-                    $('#menu-p-name').val(parent.Name);
-                }
-            });
-        }
-    }
 </script>

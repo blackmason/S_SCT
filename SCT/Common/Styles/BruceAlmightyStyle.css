@@ -92,7 +92,6 @@ a, a:visited {
 }
 
 /* 메뉴관리 화면 */
-/* 메뉴 리스트 */
 .tbl_menus_list {
     margin: 10px 30px;
     width: 60%;
@@ -119,29 +118,38 @@ a, a:visited {
     width: 30%;
 }
 
-/* 메뉴 상세 정보 */
-#menu-detail-form {
+/* 메뉴정보 div */
+#menu-parent-form {
     margin: 10px 30px 20px;
-    /*padding: 10px 5px;*/
     width: 60%;
     display: inline-block;
-    /*border: 1px solid #ccc;*/
-    border-collapse: collapse;
+    border: 1px solid #ccc;
 }
-#menu-detail-form tr {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    /*border: 1px solid #ccc;*/
-}
-#menu-detail-form th {
-    /*border: 1px solid #ccc;*/
-    padding: 5px;
-    width: 100px;
-    background-color: #eee;
+#menu-child-form {
+    padding: 10px;
+    margin-left: 30px;
+    display: inline-block;
+    border: 1px solid #ccc;
 }
 .txt_box {
     padding: 0 3px;
-    height: 30px;
-    font-size: 13px;
-    border: none;
+    height: 25px;
+}
+#menu-parent-form > p {
+    line-height: 35px;
+}
+#menu-child-form > p {
+    line-height: 35px;
+}
+span.txt_label {
+    width: 70px;
+    text-align: center;
+    display: inline-block;
+}
+.btn_group {
+    padding: 5px 10px;
+    vertical-align: middle;
+}
+p {
+    text-align: right;
 }

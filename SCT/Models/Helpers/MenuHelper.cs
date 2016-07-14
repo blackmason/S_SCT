@@ -12,7 +12,7 @@ namespace SCT.Models.Helpers
         /* 전체메뉴 가져오기 */
         public List<Menu> GetAllMenus()
         {
-            string sql = "SELECT CODE, P_CODE, NAME, URL, ROLE, ENABLED, MODIFIED, CREATED FROM MENUS";
+            string sql = "SELECT CODE, P_CODE, NAME, URL, ENABLED, MODIFIED, CREATED FROM COMM_MENU";
 
             SetConnectionString();
             Menu menus;
@@ -30,10 +30,9 @@ namespace SCT.Models.Helpers
                     menus.ParentCode = reader[1].ToString();
                     menus.Name = reader[2].ToString();
                     menus.Url = reader[3].ToString();
-                    menus.Role = reader[4].ToString();
-                    menus.Enabled = reader[5].ToString();
-                    menus.Modified = reader[6].ToString();
-                    menus.Created = reader[7].ToString();
+                    menus.Enabled = reader[4].ToString();
+                    menus.Modified = reader[5].ToString();
+                    menus.Created = reader[6].ToString();
                     menuList.Add(menus);
                 }
                 connection.Close();
@@ -43,7 +42,7 @@ namespace SCT.Models.Helpers
 
         public Menu GetMenus(string code)
         {
-            string sql = string.Format("SELECT CODE, P_CODE, NAME, URL, ROLE, ENABLED FROM MENUS WHERE CODE = '{0}'", code);
+            string sql = string.Format("SELECT CODE, P_CODE, NAME, URL, ENABLED FROM COMM_MENU WHERE CODE = '{0}'", code);
             
             Menu menu = null;
             SetConnectionString();
@@ -60,8 +59,7 @@ namespace SCT.Models.Helpers
                     menu.ParentCode = reader[1].ToString();
                     menu.Name = reader[2].ToString();
                     menu.Url = reader[3].ToString();
-                    menu.Role = reader[4].ToString();
-                    menu.Enabled = reader[5].ToString();
+                    menu.Enabled = reader[4].ToString();
                 }
                 connection.Close();
             }
