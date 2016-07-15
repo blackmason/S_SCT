@@ -12,6 +12,7 @@
         <th>메뉴이름</th>
         <th>URL</th>
         <th>사용여부</th>
+        <th>권한</th>
         <th>수정날짜</th>
         <th>만든날짜</th>
     </tr>
@@ -24,20 +25,38 @@
             <td>@item.Name</td>
             <td>@item.Url</td>
             <td>@item.Enabled</td>
+            <td>@item.Role</td>
             <td>@item.Modified</td>
             <td>@item.Created</td>
         </tr>
     }
 </table>
 
-<div id="menu-parent-form">구조변경!!!
-    <p><span class="txt_label">메뉴이름</span><input type="text" name="menuName" id="menu-name" class="txt_box" /></p>
-    <p><span class="txt_label">메뉴코드</span><input type="text" name="menuCode" id="menu-code" class="txt_box" /></p>
-    <p><span class="txt_label">부모메뉴</span><input type="text" name="menuName" id="parent-name" class="txt_box" /></p>
-    <p><span class="txt_label">URL</span><input type="text" name="menuName" id="menu-url" class="txt_box" /></p>
-    <p><span class="txt_label">권한</span><input type="text" name="menuName" id="menu-role" class="txt_box" /></p>
-    <p><span class="txt_label">사용여부</span><input type="text" name="menuName" id="menu-enable" class="txt_box" /></p>
-    <p><input type="button" class="btn_group" value="하위메뉴 추가" /></p>
+<table id="menus-form">
+    <tr>
+        <th>메뉴이름</th>
+        <td><input type="text" name="menuName" id="menu-name" class="txt_box" /></td>
+        <th>메뉴코드</th>
+        <td><input type="text" name="menuCode" id="menu-code" class="txt_box" disabled /></td>
+        <th>부모메뉴</th>
+        <td><input type="text" name="parentName" id="parent-name" class="txt_box" /></td>
+        <th>부모코드</th>
+        <td><input type="text" name="parentCode" id="parent-code" class="txt_box" /></td>
+    </tr>    
+    <tr>
+        <th>URL</th>
+        <td><input type="text" name="menuUrl" id="menu-url" class="txt_box" /></td>
+        <th>권한</th>
+        <td><input type="text" name="menuRole" id="menu-role" class="txt_box" /></td>
+        <th>사용여부</th>
+        <td><input type="text" name="menuEnabled" id="menu-enabled" class="txt_box" /></td>
+        <th></th><td></td>
+    </tr>
+</table>
+
+<div class="btn_group">
+    <input type="button" value="취소" id="btn-cancel" class="btn_set"/>
+    <input type="button" value="완료" class="btn_set"/>
 </div>
 
 <script>
@@ -51,6 +70,19 @@
                 data: { code: code },
                 success: function (data) {
                     $('#menu-name').val(data.Name);
+                    $('#menu-code').val(data.Code);
+                    GetParentName(data.ParentCode);
+                    $('#parent-code').val(data.ParentCode);
+
+                    if (data.Url == '') {
+                        $('#menu-url').val('없음');
+                    }
+                    else {
+                        $('#menu-url').val(data.Url);
+                    }
+                    
+                    $('#menu-role').val(data.Role);
+                    $('#menu-enabled').val(data.Enabled);
                 },
                 error: function(xhr, error, status){
                     alert(xhr + ":" + error + ":" + status+ ":" + typeof(code));
@@ -60,5 +92,31 @@
             return false;
         });
 
+        $('#btn-cancel').click(function () {
+            EmptyForms();
+        });
     });
+
+    function GetParentName(parentCode) {
+        if ('0' == parentCode) {
+            $('#parent-name').val('최상위');
+        }
+        else {
+            $.ajax({
+                url: '/Almighty/GetMenus',
+                data: { code: parentCode },
+                success: function (parent) {
+                    $('#parent-name').val(parent.Name);
+                }
+            });
+        }
+    }
+
+    function EmptyForms() {
+        // 취소 버튼 클릭 시 텍스트박스 클리어
+        $('#menus-form input').each(function () {
+            alert($(this).val());
+        })
+        $('#menus-form td').val('');
+    }
 </script>

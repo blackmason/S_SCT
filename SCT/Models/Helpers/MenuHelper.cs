@@ -12,7 +12,7 @@ namespace SCT.Models.Helpers
         /* 전체메뉴 가져오기 */
         public List<Menu> GetAllMenus()
         {
-            string sql = "SELECT CODE, P_CODE, NAME, URL, ENABLED, MODIFIED, CREATED FROM COMM_MENU";
+            string sql = "SELECT CODE, P_CODE, NAME, URL, ENABLED, ROLE, MODIFIED, CREATED FROM MENUS";
 
             SetConnectionString();
             Menu menus;
@@ -31,8 +31,9 @@ namespace SCT.Models.Helpers
                     menus.Name = reader[2].ToString();
                     menus.Url = reader[3].ToString();
                     menus.Enabled = reader[4].ToString();
-                    menus.Modified = reader[5].ToString();
-                    menus.Created = reader[6].ToString();
+                    menus.Role = reader[5].ToString();
+                    menus.Modified = reader[6].ToString();
+                    menus.Created = reader[7].ToString();
                     menuList.Add(menus);
                 }
                 connection.Close();
@@ -42,7 +43,7 @@ namespace SCT.Models.Helpers
 
         public Menu GetMenus(string code)
         {
-            string sql = string.Format("SELECT CODE, P_CODE, NAME, URL, ENABLED FROM COMM_MENU WHERE CODE = '{0}'", code);
+            string sql = string.Format("SELECT CODE, P_CODE, NAME, URL, ENABLED, ROLE FROM MENUS WHERE CODE = '{0}'", code);
             
             Menu menu = null;
             SetConnectionString();
@@ -60,6 +61,7 @@ namespace SCT.Models.Helpers
                     menu.Name = reader[2].ToString();
                     menu.Url = reader[3].ToString();
                     menu.Enabled = reader[4].ToString();
+                    menu.Role = reader[5].ToString();
                 }
                 connection.Close();
             }

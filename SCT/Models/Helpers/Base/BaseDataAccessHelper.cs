@@ -16,7 +16,7 @@ namespace SCT.Models.Helpers
 
         public void SetConnectionString()
         {
-            connectionString = "server=127.0.0.1;uid=sa;password=ThsdhqmCGSY!!;database=NABAKEM";
+            connectionString = "server=127.0.0.1;uid=sa;password=ThsdhqmCGSY!!;database=SCT";
         }
     }
 }

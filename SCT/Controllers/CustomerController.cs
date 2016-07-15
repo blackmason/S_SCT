@@ -19,6 +19,8 @@ namespace SCT.Controllers
          */
         public ActionResult Notice(string mode, string id)
         {
+            ViewBag.Title = "고객지원";
+
             if ("Write" == mode)
             {
                 return View("Notice/Write");
@@ -66,7 +68,7 @@ namespace SCT.Controllers
          * id: 글번호
          */
         [ValidateInput(false)]
-        public ActionResult OnSubmit(string mode, string id, string subject, string contents)       //공지사항에 구속되지 않게 구현 보드아이디?
+        public ActionResult OnSubmit(string mode, string id, string subject, string contents, string author)       //공지사항에 구속되지 않게 구현 보드아이디?
         {
             //세션처리 해야함
             string bbsId = Request["bbsId"];
@@ -75,7 +77,7 @@ namespace SCT.Controllers
             if ("Write" == mode)
             {
                 helper = new BoardHelper();
-                int result = helper.AddContents(subject, contents);
+                int result = helper.AddContents(subject, contents, author);
 
                 if (0 != result)
                 {

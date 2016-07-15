@@ -119,37 +119,32 @@ a, a:visited {
 }
 
 /* 메뉴정보 div */
-#menu-parent-form {
+#menus-form {
     margin: 10px 30px 20px;
     width: 60%;
     display: inline-block;
+    /*border: 1px solid #ccc;*/
+    border-collapse: collapse;
+    font-size: 13px;
+}
+#menus-form tr {
     border: 1px solid #ccc;
 }
-#menu-child-form {
-    padding: 10px;
-    margin-left: 30px;
-    display: inline-block;
-    border: 1px solid #ccc;
+#menus-form th {
+    padding: 5px;
+    width: 100px;
+    background-color: #eee;
 }
 .txt_box {
     padding: 0 3px;
     height: 25px;
-}
-#menu-parent-form > p {
-    line-height: 35px;
-}
-#menu-child-form > p {
-    line-height: 35px;
-}
-span.txt_label {
-    width: 70px;
-    text-align: center;
-    display: inline-block;
+    border: none;
 }
 .btn_group {
-    padding: 5px 10px;
-    vertical-align: middle;
-}
-p {
+    margin: -10px 30px 20px;
+    width: 60%;
     text-align: right;
+}
+.btn_set {
+    padding: 5px 8px;
 }

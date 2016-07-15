@@ -52,11 +52,11 @@ namespace SCT.Models.Helpers
         }
 
         // 게시물 입력
-        public int AddContents(string subject, string contents)
+        public int AddContents(string subject, string contents, string author)
         {
             string revContents = contents.Replace("'", "''");
             
-            string sql = string.Format("INSERT INTO COMM_NOTICE (SUBJECT, CONTENTS) VALUES ('{0}','{1}')", subject, revContents);
+            string sql = string.Format("INSERT INTO BBS_NOTICE (SUBJECT, CONTENTS, AUTHOR) VALUES ('{0}','{1}','{2}')", subject, revContents, author);
 
             int result;
             SetConnectionString();
@@ -74,9 +74,9 @@ namespace SCT.Models.Helpers
         // 게시물 보기
         public Board GetContents(string id)
         {
-            //string sql = string.Format("SELECT SUBJECT, CONTENTS, AUTHOR, LEFT(CONVERT(CHAR(19), CREATED, 120), 16), VISIT FROM COMM_NOTICE WHERE NO = {0}", id);
+            //string sql = string.Format("SELECT SUBJECT, CONTENTS, AUTHOR, LEFT(CONVERT(CHAR(19), CREATED, 120), 16), VISIT FROM BBS_NOTICE WHERE NO = {0}", id);
             // 어떤 bbs 타입인지 인자로 구분하고, 프로시저 실행 할 것.
-            string sql = "NOTICE_USP";
+            string sql = "NOTICE_VIEW_USP";
 
             SetConnectionString();
             Board bbs = new Board();
@@ -85,7 +85,7 @@ namespace SCT.Models.Helpers
                 connection.Open();
                 command = new SqlCommand(sql, connection);
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@NO", id);
+                command.Parameters.AddWithValue("@SEQ", id);
                 reader = command.ExecuteReader();
 
                 if (reader.Read())
@@ -107,7 +107,7 @@ namespace SCT.Models.Helpers
         public int DeleteContents(string bbsId, string id)
         {
             string tblName = ReturnTblName(bbsId);
-            string sql = string.Format("DELETE FROM {0} WHERE NO = {1}", tblName, id);
+            string sql = string.Format("DELETE FROM {0} WHERE SEQ = {1}", tblName, id);
 
             int result;
             SetConnectionString();
@@ -125,7 +125,7 @@ namespace SCT.Models.Helpers
         public int EditContents(string bbsId, string id, string subject, string contents)         //업데이트문으로 교체
         {
             string tblName = ReturnTblName(bbsId);
-            string sql = string.Format("UPDATE {0} SET SUBJECT = '{1}', CONTENTS = '{2}' WHERE NO = '{3}'", tblName, subject, contents, id);
+            string sql = string.Format("UPDATE {0} SET SUBJECT = '{1}', CONTENTS = '{2}' WHERE SEQ = '{3}'", tblName, subject, contents, id);
             //string sql = "NOTICE_USP";
 
             int result;
@@ -180,7 +180,7 @@ namespace SCT.Models.Helpers
             }
             else
             {
-                return "COMM_NOTICE";
+                return "BBS_NOTICE";
             }
         }
 

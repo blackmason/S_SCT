@@ -9,6 +9,7 @@
 -->
 <form name="tx_editor_form" id="tx_editor_form" action="/Customer/OnSubmit/Write" method="post" accept-charset="utf-8">
     <input type="hidden" name="bbsId" value="Notice" />
+    <input type="hidden" name="author" value="@Session["userId"]" />
     <table border="1" id="tbl-editor-form" >
         <tr>
             <th>제목</th>
