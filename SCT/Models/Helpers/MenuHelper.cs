@@ -1,6 +1,7 @@
 ﻿using SCT.Models.Domains;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -69,19 +70,58 @@ namespace SCT.Models.Helpers
             return menu;
         }
 
-        public void AddMenu(string code, string parentCode, string name, string url)
+        public int AddMenu(string code, string name, string parentCode, string url, string role, string enabled)
         {
-            throw new NotImplementedException();
+            int result;
+            string sql = "MENU_ADD_USP";
+
+            SetConnectionString();
+            using(connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@CODE", code);
+                command.Parameters.AddWithValue("@P_CODE", parentCode);
+                command.Parameters.AddWithValue("@NAME", name);
+                command.Parameters.AddWithValue("@URL", url);
+                command.Parameters.AddWithValue("@ENABLED", enabled);
+                command.Parameters.AddWithValue("@ROLE", role);
+                result = command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            return result;
         }
 
-        public void UpdateMenu(string code)
+        public int UpdateMenu(string code, string name, string parentCode, string url, string role, string enabled)
         {
-            throw new NotImplementedException();
+            int result;
+            string sql = "MENU_UPDATE_USP";
+            
+            SetConnectionString();
+            using(connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@NAME", name);
+                command.Parameters.AddWithValue("@P_CODE", parentCode);
+                command.Parameters.AddWithValue("@URL", url);
+                command.Parameters.AddWithValue("@ROLE", role);
+                command.Parameters.AddWithValue("@ENABLED", enabled);
+                command.Parameters.AddWithValue("@CODE", code);
+                result = command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            return result;
         }
 
         public void DeleteMenu(string code)
         {
             throw new NotImplementedException();
         }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace SCT.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         //
         // GET: /Product/

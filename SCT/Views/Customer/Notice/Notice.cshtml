@@ -18,7 +18,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.Count < 1)
+        if (@Model.Count < 1)
         {
             <tr><td>자료가 없습니다.</td></tr>
         }

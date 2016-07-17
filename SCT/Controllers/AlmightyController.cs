@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace SCT.Controllers
 {
-    public class AlmightyController : Controller
+    public class AlmightyController : BaseController
     {
         //
         // GET: /Almighty/
@@ -32,5 +32,18 @@ namespace SCT.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public void UpdateMenu(string code, string name, string parentCode, string url, string role, string enabled)
+        {
+            MenuHelper helper = new MenuHelper();
+            helper.UpdateMenu(code, name, parentCode, url, role, enabled);
+            return;
+        }
+
+        public void AddMenu(string code, string name, string parentCode, string url, string role, string enabled)
+        {
+            MenuHelper helper = new MenuHelper();
+            helper.AddMenu(code, name, parentCode, url, role, enabled);
+            return;
+        }
     }
 }

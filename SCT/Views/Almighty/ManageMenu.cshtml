@@ -37,9 +37,9 @@
         <th>메뉴이름</th>
         <td><input type="text" name="menuName" id="menu-name" class="txt_box" /></td>
         <th>메뉴코드</th>
-        <td><input type="text" name="menuCode" id="menu-code" class="txt_box" disabled /></td>
+        <td><input type="text" name="menuCode" id="menu-code" class="txt_box" /></td>
         <th>부모메뉴</th>
-        <td><input type="text" name="parentName" id="parent-name" class="txt_box" /></td>
+        <td><input type="text" name="parentName" id="parent-name" class="txt_box" readonly /></td>
         <th>부모코드</th>
         <td><input type="text" name="parentCode" id="parent-code" class="txt_box" /></td>
     </tr>    
@@ -56,7 +56,8 @@
 
 <div class="btn_group">
     <input type="button" value="취소" id="btn-cancel" class="btn_set"/>
-    <input type="button" value="완료" class="btn_set"/>
+    <input type="button" value="수정" id="btn-update" class="btn_set"/>
+    <input type="button" value="추가" id="btn-add" class="btn_set" />
 </div>
 
 <script>
@@ -95,6 +96,13 @@
         $('#btn-cancel').click(function () {
             EmptyForms();
         });
+
+        $('#btn-update').click(function () {
+            SubmitForms('update');
+        })
+        $('#btn-add').click(function () {
+            SubmitForms();
+        })
     });
 
     function GetParentName(parentCode) {
@@ -115,8 +123,53 @@
     function EmptyForms() {
         // 취소 버튼 클릭 시 텍스트박스 클리어
         $('#menus-form input').each(function () {
-            alert($(this).val());
+            $(this).val('');
         })
-        $('#menus-form td').val('');
+    }
+
+    function SubmitForms(btnGb) {
+        var value = [];
+        var json = {};
+
+        $('#menus-form input').each(function (i, v) {
+            value[i] = $(this).val();
+        })
+
+        json = {
+            Name: value[0],
+            Code: value[1],
+            ParentCode : value[3],
+            Url: value[4],
+            Role: value[5],
+            Enabled: value[6]
+        }
+
+        if (btnGb == 'update') {
+            $.ajax({
+                url: '/Almighty/UpdateMenu',
+                data: json,
+                success: function (data) {
+                    alert("메뉴수정이 완료되었습니다.");
+                    location.reload();
+                },
+                error: function (request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                }
+            });
+        }
+        else {
+            $.ajax({
+                url: '/Almighty/AddMenu',
+                data: json,
+                success: function (data) {
+                    alert("메뉴추가가 완료되었습니다.");
+                    location.reload();
+                },
+                error: function (request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+                }
+            });
+        }
+        
     }
 </script>
