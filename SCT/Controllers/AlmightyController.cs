@@ -45,5 +45,10 @@ namespace SCT.Controllers
             helper.AddMenu(code, name, parentCode, url, role, enabled);
             return;
         }
+
+        public ActionResult ManageProducts()
+        {
+            return View();
+        }
     }
 }

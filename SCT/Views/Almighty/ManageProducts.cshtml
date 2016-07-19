@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "ManageProducts";
+    Layout = "~/Views/_Layouts/AlmightyLayout.cshtml";
+}
+
+<h2>ManageProducts</h2>
+
+<table id="tbl-product-import">
+    <tr>
+        <th>카테고리</th>
+        <td>
+            <select name="productCategory" id="product-category" class="form_product">
+                <option>카테고리1</option>
+                <option>카테고리2</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>제품이름</th>
+        <td><input type="text" name="productName" id="product-name" class="form_product" /></td>
+    </tr>
+    <tr>
+        <th>제품 이미지</th>
+        <td><input type="file" name="productImg" id="product-img" class="form_product" /></td>
+    </tr>
+    <tr>
+        <th>제품 설명</th>
+        <td><textarea cols="100" rows="30" style="overflow-x: hidden; overflow-y: auto;" name="productDesc" id="product-desc" class="form_product">https://www.siteground.com/tutorials/magento/import-products.htm</textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: right;">
+            <input type="reset" class="btn_cancel" value="취소" />
+            <input type="submit" class="btn_submit" value="저장" />
+        </td>
+    </tr>
+</table>
+
+<style>
+    #tbl-product-import {
+        width: 80%;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+    #tbl-product-import tr {
+        /*border: 1px solid #ccc;*/
+    }
+    #tbl-product-import th {
+        padding: 5px;    
+        width: 100px;
+        border-right: 1px solid #ccc;
+    }
+    #tbl-product-import td {
+        padding: 5px 10px;
+    }
+    
+    #product-name {
+        width: 80%;
+        height: 25px;
+    }
+    #product-desc {
+        width: 80%;
+    }
+
+</style>
