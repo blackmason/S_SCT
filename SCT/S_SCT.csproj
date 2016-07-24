@@ -505,6 +505,12 @@
   <ItemGroup>
     <Content Include="Views\Almighty\ManageProducts.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Almighty\Products\Products.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Almighty\Products\Write.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

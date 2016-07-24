@@ -46,9 +46,9 @@ namespace SCT.Controllers
             return;
         }
 
-        public ActionResult ManageProducts()
+        public ActionResult Products()
         {
-            return View();
+            return View("Products/Products");
         }
     }
 }

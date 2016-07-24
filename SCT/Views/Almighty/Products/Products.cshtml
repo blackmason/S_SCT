@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/_Layouts/AlmightyLayout.cshtml";
+}
+
+<h2>Products</h2>
+
+
+<style>
+    #tbl-product {
+        width: 70%;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+    #tbl-product th {
+        padding: 10px;
+        width: 20%;
+        border-right: 1px solid #ccc;
+    }
+    #tbl-product td {
+        padding: 0 10px;
+    }
+    .txt_prod_form {
+        width: 80%;
+        height: 23px;
+    }
+    #prod-info {
+        width: 80%;
+        height: 500px;
+    }
+    #btn-wrapper {
+        width: 70%;
+        text-align: right;
+    }
+    .btn_prod_form {
+        margin-top: -2px;
+        height: 28px;
+        vertical-align: middle;
+        border: 1px solid #ccc;
+    }
+</style>
+<body>
+    <table id="tbl-product">
+        <tr>
+            <th>제품분류</th>
+            <td>
+                <select name="productGb" id="prod-gb">
+                    <option value="">분류1</option>
+                    <option value="">분류2</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>모델명</th>
+            <td><input type="text" name="modelName" id="model-name" class="txt_prod_form" /></td>
+        </tr>
+        <tr>
+            <th>제품명</th>
+            <td><input type="text" name="productName" id="prod-name" class="txt_prod_form" /></td>
+        </tr>
+        <tr>
+            <th>제품이미지</th>
+            <td><input type="file" name="productImage" id="prod-img" class="txt_prod_form" /></td>
+        </tr>
+        <tr>
+            <th>제품설명</th>
+            <td><textarea name="productInfo" id="prod-info"></textarea></td>
+        </tr>
+        <tr>
+            <th>태그</th>
+            <td><span style="display: inline-block; height: 30px;">&nbsp;</span></td>
+        </tr>
+        <tr>
+            <th>태그입력</th>
+            <td>
+                <input type="text" id="search-tag" class="txt_prod_form" />
+                <input type="button" id="submit-tag" class="btn_prod_form" value="입력" />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <div id="btn-wrapper">
+        <input type="reset" class="btn_prod_form" value="취소" />
+        <input type="submit" class="btn_prod_form" value="완료" />
+    </div>
+</body>
