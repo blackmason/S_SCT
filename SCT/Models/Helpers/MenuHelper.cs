@@ -42,7 +42,7 @@ namespace SCT.Models.Helpers
             return menuList;
         }
 
-        public Menu GetMenus(string code)
+        public Menu GetMenu(string code)
         {
             string sql = string.Format("SELECT CODE, P_CODE, NAME, URL, ENABLED, ROLE FROM MENUS WHERE CODE = '{0}'", code);
             

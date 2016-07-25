@@ -67,7 +67,7 @@
             code = $(this).data('menu-code');
 
             $.ajax({
-                url: '/Almighty/GetMenus',
+                url: '/Almighty/GetMenu',
                 data: { code: code },
                 success: function (data) {
                     $('#menu-name').val(data.Name);

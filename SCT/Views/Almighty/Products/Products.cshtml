@@ -4,41 +4,6 @@
 }
 
 <h2>Products</h2>
-
-
-<style>
-    #tbl-product {
-        width: 70%;
-        border: 1px solid #ccc;
-        border-collapse: collapse;
-    }
-    #tbl-product th {
-        padding: 10px;
-        width: 20%;
-        border-right: 1px solid #ccc;
-    }
-    #tbl-product td {
-        padding: 0 10px;
-    }
-    .txt_prod_form {
-        width: 80%;
-        height: 23px;
-    }
-    #prod-info {
-        width: 80%;
-        height: 500px;
-    }
-    #btn-wrapper {
-        width: 70%;
-        text-align: right;
-    }
-    .btn_prod_form {
-        margin-top: -2px;
-        height: 28px;
-        vertical-align: middle;
-        border: 1px solid #ccc;
-    }
-</style>
 <body>
     <table id="tbl-product">
         <tr>
@@ -83,4 +48,24 @@
         <input type="reset" class="btn_prod_form" value="취소" />
         <input type="submit" class="btn_prod_form" value="완료" />
     </div>
+    <script>
+        $(document).ready(function () {
+            var menus = [];
+
+            $.ajax({
+                url: '/Almighty/ManageMenu',
+                success: function (data) {
+                    $.each(function (data, i) {
+                        if (data.ParentCode != '0') {
+                            menus[i] = data;
+                        }
+                    });
+                    alert(menus);
+                },
+                error: function (xhr, error, status) {
+                    alert(xhr + ":" + error + ":" + status + ":" + typeof (code));
+                }
+            });
+        });
+    </script>
 </body>
