@@ -13,11 +13,11 @@ namespace SCT.Controllers
         /// 전체메뉴 가져오기
         /// MenuHelper.GetAllMenus()
         /// List<Menus>
-        public dynamic GetAllMenus()
+        public JsonResult GetAllMenus()
         {
             MenuHelper helper = new MenuHelper();
             var result = helper.GetAllMenus();
-            return result;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         /// 데이터 액션
@@ -51,6 +51,15 @@ namespace SCT.Controllers
             return;
         }
 
+        /// 데이터 액션
+        /// 메뉴 관리 화면 - 메뉴 하나 선택 시
+        /// JsonResult
+        public JsonResult GetMenu(string code)
+        {
+            //var result = GetOneMenu(code);
+            return GetOneMenu(code);
+        }
+
         /// 페이지 액션
         /// 요약 화면
         /// ActionResult
@@ -65,15 +74,6 @@ namespace SCT.Controllers
         public ActionResult ManageMenu()
         {
             return View(GetAllMenus());
-        }
-
-        /// 페이지 액션
-        /// 메뉴 관리 화면 - 메뉴 하나 선택 시
-        /// JsonResult
-        public JsonResult GetMenu(string code)
-        {
-            //var result = GetOneMenu(code);
-            return GetOneMenu(code);
         }
 
         /// 페이지 액션

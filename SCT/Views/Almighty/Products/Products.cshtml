@@ -10,8 +10,6 @@
             <th>제품분류</th>
             <td>
                 <select name="productGb" id="prod-gb">
-                    <option value="">분류1</option>
-                    <option value="">분류2</option>
                 </select>
             </td>
         </tr>
@@ -31,17 +29,6 @@
             <th>제품설명</th>
             <td><textarea name="productInfo" id="prod-info"></textarea></td>
         </tr>
-        <tr>
-            <th>태그</th>
-            <td><span style="display: inline-block; height: 30px;">&nbsp;</span></td>
-        </tr>
-        <tr>
-            <th>태그입력</th>
-            <td>
-                <input type="text" id="search-tag" class="txt_prod_form" />
-                <input type="button" id="submit-tag" class="btn_prod_form" value="입력" />
-            </td>
-        </tr>
     </table>
     <br />
     <div id="btn-wrapper">
@@ -51,16 +38,18 @@
     <script>
         $(document).ready(function () {
             var menus = [];
+            var k = 0;
 
             $.ajax({
-                url: '/Almighty/ManageMenu',
+                url: '/Almighty/GetAllMenus',
                 success: function (data) {
-                    $.each(function (data, i) {
-                        if (data.ParentCode != '0') {
-                            menus[i] = data;
+                    $.each(data, function (i, val) {
+                        if (val.ParentCode != '0') {
+                            menus[k] = '<option value="' + val.Code + '">' + val.Name + '</option>';
+                            k++;
                         }
                     });
-                    alert(menus);
+                    $('#prod-gb').html(menus);
                 },
                 error: function (xhr, error, status) {
                     alert(xhr + ":" + error + ":" + status + ":" + typeof (code));

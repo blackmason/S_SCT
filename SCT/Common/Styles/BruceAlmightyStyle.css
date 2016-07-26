@@ -10,7 +10,7 @@ html, body {
 
 /* 요소자리잡기 */
 #container {
-    font-size: 12px;
+    font-size: 11px;
 }
 #top-navi {
     height: 90px;
@@ -94,7 +94,7 @@ a, a:visited {
 /* 메뉴관리 화면 */
 .tbl_menus_list {
     margin: 10px 30px;
-    width: 60%;
+    width: 90%;
     text-align: center;
     border-collapse: collapse;
 }
@@ -121,18 +121,18 @@ a, a:visited {
 /* 메뉴정보 div */
 #menus-form {
     margin: 10px 30px 20px;
-    width: 60%;
+    width: 90%;
     display: inline-block;
     /*border: 1px solid #ccc;*/
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 11px;
 }
 #menus-form tr {
     border: 1px solid #ccc;
 }
 #menus-form th {
     padding: 5px;
-    width: 100px;
+    width: 300px;
     background-color: #eee;
 }
 .txt_box {
@@ -151,7 +151,7 @@ a, a:visited {
 
 /* 제품관리 화면 */
  #tbl-product {
-    width: 80%;
+    width: 90%;
     border: 1px solid #ccc;
     border-collapse: collapse;
 }
@@ -161,7 +161,7 @@ a, a:visited {
     border-right: 1px solid #ccc;
 }
 #tbl-product td {
-    padding: 0 10px;
+    padding: 5px 10px;
 }
 .txt_prod_form {
     width: 90%;
@@ -172,11 +172,12 @@ a, a:visited {
     height: 500px;
 }
 #btn-wrapper {
-    width: 80%;
+    width: 90%;
     text-align: right;
 }
 .btn_prod_form {
     margin-top: -2px;
+    padding: 0 10px;
     height: 28px;
     vertical-align: middle;
     border: 1px solid #ccc;
