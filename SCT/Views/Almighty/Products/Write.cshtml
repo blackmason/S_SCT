@@ -10,12 +10,12 @@
     decsription
     등록하기 위한 Form으로 상황에 맞게 수정하여 사용한다. Form 이름은 에디터를 생성할 때 설정값으로 설정한다.
 -->
-<form name="tx_editor_form" id="tx_editor_form" action="http://posttestserver.com/post.php" method="post" accept-charset="utf-8">
+<form name="tx_editor_form" id="tx_editor_form" action="/Product/OnSubmit" method="post" accept-charset="utf-8">
     <table id="tbl-product">
         <tr>
             <th>제품분류</th>
             <td>
-                <select name="productGb" id="prod-gb"></select>
+                <select name="productGb" id="prod-gb" onchange="alert(this.value)"></select>
             </td>
         </tr>
         <tr>
@@ -544,7 +544,7 @@
 
         // 본문 내용을 필드를 생성하여 값을 할당하는 부분
         var textarea = document.createElement('textarea');
-        textarea.name = 'content';
+        textarea.name = 'contents';
         textarea.value = content;
         form.createField(textarea);
 
@@ -599,7 +599,7 @@
                     menus[k] = '<option value="' + val.Code + '">' + val.Name + '</option>';
                     k++;
                 });
-                $('#prod-gb').html(menus);
+                $('#prod-gb').html(menus).trigger('create');
             },
             error: function (xhr, error, status) {
                 alert(xhr + ":" + error + ":" + status + ":" + typeof (code));

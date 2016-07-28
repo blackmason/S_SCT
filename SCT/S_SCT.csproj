@@ -125,6 +125,7 @@
     <Compile Include="Models\Helpers\Base\BaseDataAccessHelper.cs" />
     <Compile Include="Models\Helpers\BoardHelper.cs" />
     <Compile Include="Models\Helpers\MenuHelper.cs" />
+    <Compile Include="Models\Helpers\ProductHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

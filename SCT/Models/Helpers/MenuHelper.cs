@@ -44,7 +44,7 @@ namespace SCT.Models.Helpers
 
         public List<Menu> GetSubMenus()
         {
-            string sql = "SELECT NAME FROM MENUS WHERE P_CODE != '0'";
+            string sql = "SELECT CODE, NAME FROM MENUS WHERE P_CODE != '0'";
             List<Menu> subMenuList;
             SetConnectionString();
             using (connection = new SqlConnection(connectionString))
@@ -58,7 +58,8 @@ namespace SCT.Models.Helpers
                 while (reader.Read())
                 {
                     menu = new Menu();
-                    menu.Name = reader[0].ToString();
+                    menu.Code = reader[0].ToString();
+                    menu.Name = reader[1].ToString();
                     subMenuList.Add(menu);
                 }
 
