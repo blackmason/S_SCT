@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SCT.Models.Domains;
 
 namespace SCT.Controllers
 {
@@ -13,10 +14,23 @@ namespace SCT.Controllers
         /// 전체메뉴 가져오기
         /// MenuHelper.GetAllMenus()
         /// List<Menus>
-        public JsonResult GetAllMenus()
+        public List<Menu> GetAllMenus()
         {
             MenuHelper helper = new MenuHelper();
             var result = helper.GetAllMenus();
+
+            return result;
+        }
+
+        /// 데이터 액션
+        /// 서브메뉴 가져오기
+        /// MenuHelper.GetSubMenus()
+        /// List<Menus>
+        public JsonResult GetSubMenus()
+        {
+            MenuHelper helper = new MenuHelper();
+            var result = helper.GetSubMenus();
+
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -81,7 +95,7 @@ namespace SCT.Controllers
         /// ActionResult
         public ActionResult Products()
         {
-            return View("Products/Products");
+            return View("Products/Write");
         }
     }
 }
