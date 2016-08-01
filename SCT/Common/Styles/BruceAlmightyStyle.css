@@ -164,6 +164,19 @@ a, a:visited {
     border-bottom: 1px solid #ccc;
     text-align: center;
 }
+#tbl-products-list td:nth-child(2) {
+    width: 130px;
+}
+#tbl-products-list td:nth-child(7) {
+    width: 180px;
+}
+#tbl-products-list td:nth-child(8) {
+    width: 180px;
+}
+#tbl-products-list td:nth-child(9) {
+    width: 100px;
+}
+
 
 /* 제품추가 화면 */
  #tbl-product-add {

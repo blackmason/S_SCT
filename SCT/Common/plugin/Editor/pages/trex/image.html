@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -9,7 +9,11 @@
 // <![CDATA[
 	
 	function done() {
-		if (typeof(execAttach) == 'undefined') { //Virtual Function
+
+	    var file = document.getElementById('fileInput').value;
+	    alert(file);
+
+	    if (typeof (execAttach) == 'undefined') { //Virtual Function
 	        return;
 	    }
 		
@@ -52,6 +56,9 @@
 			</dd>
 		</dl>
 	</div>
+    <div>
+        <input type="file" name="attach" id="fileInput"/>
+    </div>
 	<div class="footer">
 		<p><a href="#" onclick="closeWindow();" title="닫기" class="close">닫기</a></p>
 		<ul>
