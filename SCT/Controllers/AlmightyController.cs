@@ -91,9 +91,20 @@ namespace SCT.Controllers
         }
 
         /// 페이지 액션
-        /// 제품 관리 화면
+        /// 제품 관리 목록 화면
         /// ActionResult
         public ActionResult Products()
+        {
+            ProductHelper helper = new ProductHelper();
+            var result = helper.GetAllProducts();
+            return View("Products/Products", result);
+        }
+
+        /// 
+        /// 
+        /// 
+        /// 
+        public ActionResult Write()
         {
             return View("Products/Write");
         }

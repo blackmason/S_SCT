@@ -150,17 +150,33 @@ a, a:visited {
 }
 
 /* 제품관리 화면 */
- #tbl-product {
+#tbl-products-list {
     width: 90%;
     border: 1px solid #ccc;
     border-collapse: collapse;
 }
-#tbl-product th {
+#tbl-products-list th {
+    height: 25px;
+    border: 1px solid #ccc;
+}
+#tbl-products-list td {
+    height: 35px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+/* 제품추가 화면 */
+ #tbl-product-add {
+    width: 90%;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+ #tbl-product-add th {
     padding: 10px;
     width: 20%;
     border-right: 1px solid #ccc;
 }
-#tbl-product td {
+ #tbl-product-add td {
     padding: 5px 10px;
 }
 .txt_prod_form {

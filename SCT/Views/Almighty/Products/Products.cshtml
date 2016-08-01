@@ -4,57 +4,43 @@
 }
 
 <h2>Products</h2>
-<body>
-    <table id="tbl-product">
+
+<div id="btn-wrapper"><input type="button" value="작성" onclick="moveWrite()"/></div>
+<table id="tbl-products-list">
+    <tr>
+        <th>일련번호</th>
+        <th>사진</th>
+        <th>모델명</th>
+        <th>제품명</th>
+        <th>제품분류</th>
+        <th>수정날짜</th>
+        <th>만든날짜</th>
+        <th>활성상태</th>
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>제품분류</th>
+            <td>@item.Seq</td>
+            <td></td>
+            <td>@item.ModelName</td>
+            <td>@item.ProductName</td>
+            <td>@item.ProductCode</td>
+            <td>@item.Enabled</td>
+            <td>@item.Modified</td>
+            <td>@item.Created</td>
             <td>
-                <select name="productGb" id="prod-gb">
-                </select>
+                <span class="btn_group">수정</span>
+                <span class="btn_group">삭제</span>
             </td>
         </tr>
-        <tr>
-            <th>모델명</th>
-            <td><input type="text" name="modelName" id="model-name" class="txt_prod_form" /></td>
-        </tr>
-        <tr>
-            <th>제품명</th>
-            <td><input type="text" name="productName" id="prod-name" class="txt_prod_form" /></td>
-        </tr>
-        <tr>
-            <th>제품이미지</th>
-            <td><input type="file" name="productImage" id="prod-img" class="txt_prod_form" /></td>
-        </tr>
-        <tr>
-            <th>제품설명</th>
-            <td><textarea name="productInfo" id="prod-info"></textarea></td>
-        </tr>
-    </table>
-    <br />
-    <div id="btn-wrapper">
-        <input type="reset" class="btn_prod_form" value="취소" />
-        <input type="submit" class="btn_prod_form" value="완료" />
-    </div>
-    <script>
-        $(document).ready(function () {
-            var menus = [];
-            var k = 0;
+    }
+    
+</table>
 
-            $.ajax({
-                url: '/Almighty/GetAllMenus',
-                success: function (data) {
-                    $.each(data, function (i, val) {
-                        if (val.ParentCode != '0') {
-                            menus[k] = '<option value="' + val.Code + '">' + val.Name + '</option>';
-                            k++;
-                        }
-                    });
-                    $('#prod-gb').html(menus);
-                },
-                error: function (xhr, error, status) {
-                    alert(xhr + ":" + error + ":" + status + ":" + typeof (code));
-                }
-            });
-        });
-    </script>
-</body>
+<script>
+    function moveWrite() {
+        location.href = "/Almighty/Write";
+    }
+</script>

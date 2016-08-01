@@ -12,9 +12,9 @@ namespace SCT.Controllers
         //
         // GET: /Product/
 
-        public ActionResult Default()
+        public ActionResult Write()
         {
-            return View();
+            return View("/Almighty/Products/Write");
         }
 
         [ValidateInput(false)]
