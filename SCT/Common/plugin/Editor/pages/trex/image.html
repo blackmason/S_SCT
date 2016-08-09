@@ -11,21 +11,31 @@
 	function done() {
 
 	    var file = document.getElementById('fileInput').value;
-	    alert(file);
+	    var fileUrl = file.substring(0, file.lastIndexOf('\\'));
+	    var fileName = file.substring(file.lastIndexOf('\\') + 1, file.length);
 
 	    if (typeof (execAttach) == 'undefined') { //Virtual Function
 	        return;
 	    }
 		
+		//var _mockdata = {
+		//	'imageurl': 'http://cfile284.uf.daum.net/image/116E89154AA4F4E2838948',
+		//	'filename': 'editor_bi.gif',
+		//	'filesize': 640,
+		//	'imagealign': 'C',
+		//	'originalurl': 'http://cfile284.uf.daum.net/original/116E89154AA4F4E2838948',
+		//	'thumburl': 'http://cfile284.uf.daum.net/P150x100/116E89154AA4F4E2838948'
+		//};
 		var _mockdata = {
-			'imageurl': 'http://cfile284.uf.daum.net/image/116E89154AA4F4E2838948',
-			'filename': 'editor_bi.gif',
-			'filesize': 640,
-			'imagealign': 'C',
-			'originalurl': 'http://cfile284.uf.daum.net/original/116E89154AA4F4E2838948',
-			'thumburl': 'http://cfile284.uf.daum.net/P150x100/116E89154AA4F4E2838948'
+		    'imageurl': fileUrl + '\\' + fileName,
+		    'filename': fileName,
+		    'filesize': 640,
+		    'imagealign': 'C',
+		    'originalurl': 'http://cfile284.uf.daum.net/original/116E89154AA4F4E2838948',
+		    'thumburl': 'http://cfile284.uf.daum.net/P150x100/116E89154AA4F4E2838948'
 		};
 		execAttach(_mockdata);
+		//alert(_mockdata.imageurl);
 		closeWindow();
 	}
 
