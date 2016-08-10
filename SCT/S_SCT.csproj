@@ -133,6 +133,56 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Common\plugin\SmartEditor\css\smart_editor2.css" />
+    <Content Include="Common\plugin\SmartEditor\css\smart_editor2_in.css" />
+    <Content Include="Common\plugin\SmartEditor\css\smart_editor2_items.css" />
+    <Content Include="Common\plugin\SmartEditor\css\smart_editor2_out.css" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_b1.png" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_button.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_button_left.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_button_right.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_find_h3.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_help.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_icon_tool.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_line1.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_quote2.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_set.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_text_tool.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\bg_tool2.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\editor_guideline_698.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\editor_guideline_890.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\icon_set.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\ico_extend.png" />
+    <Content Include="Common\plugin\SmartEditor\img\ko_KR\btn_set.png" />
+    <Content Include="Common\plugin\SmartEditor\img\ko_KR\bx_set_110302.gif" />
+    <Content Include="Common\plugin\SmartEditor\img\ko_KR\text_tool_set.png" />
+    <Content Include="Common\plugin\SmartEditor\img\text_tool_set2.png" />
+    <Content Include="Common\plugin\SmartEditor\js\HuskyEZCreator.js" />
+    <Content Include="Common\plugin\SmartEditor\js\lib\jindo2.all.js" />
+    <Content Include="Common\plugin\SmartEditor\js\lib\jindo_component.js" />
+    <Content Include="Common\plugin\SmartEditor\js\SE2BasicCreator.js" />
+    <Content Include="Common\plugin\SmartEditor\js\SE2M_Configuration.js" />
+    <Content Include="Common\plugin\SmartEditor\js\smarteditor2.js" />
+    <Content Include="Common\plugin\SmartEditor\js\smarteditor2.min.js" />
+    <Content Include="Common\plugin\SmartEditor\readme.txt" />
+    <Content Include="Common\plugin\SmartEditor\release_notes.txt" />
+    <Content Include="Common\plugin\SmartEditor\sample\js\plugin\hp_SE2M_AttachQuickPhoto.js" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\attach_photo.js" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\callback.html" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\img\bg_drag_image.png" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\img\btn_cancel.png" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\img\btn_confirm.png" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\img\btn_confirm2.png" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\img\btn_del.png" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\img\btn_find.png" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\jindo.fileuploader.js" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\jindo.min.js" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\photo_uploader.html" />
+    <Content Include="Common\plugin\SmartEditor\SmartEditor2.html" />
+    <Content Include="Common\plugin\SmartEditor\SmartEditor2Skin.html" />
+    <Content Include="Common\plugin\SmartEditor\SmartEditor2_noframe.html" />
+    <Content Include="Common\plugin\SmartEditor\smart_editor2_inputarea.html" />
+    <Content Include="Common\plugin\SmartEditor\smart_editor2_inputarea_ie8.html" />
     <Content Include="Common\Scripts\LoginScript.js" />
     <Content Include="Common\Scripts\MenuScript.js" />
     <Content Include="Common\plugin\Editor\css\content_view.css" />
@@ -513,6 +563,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Almighty\Products\Write.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\plugin\SmartEditor\sample.php" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\file_uploader.php" />
+    <Content Include="Common\plugin\SmartEditor\sample\photo_uploader\file_uploader_html5.php" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
