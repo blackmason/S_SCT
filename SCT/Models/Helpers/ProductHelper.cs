@@ -65,7 +65,15 @@ namespace SCT.Models.Helpers
             }
 
             return list;
+        }
 
+        public IEnumerable<HttpPostedFileBase> UploadFiles(HttpPostedFileBase files)
+        {
+            
+            foreach (var file in files)
+            {
+
+            }
         }
 
     }

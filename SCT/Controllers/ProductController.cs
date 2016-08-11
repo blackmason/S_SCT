@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace SCT.Controllers
 {
@@ -29,7 +30,19 @@ namespace SCT.Controllers
             int result = helper.AddProduct(productGb, modelName, productName, contents);
 
             return RedirectToAction("Products", "Almighty");
+        }
 
+        public void UploadFiles(IEnumerable<HttpPostedFileBase> files)
+        {
+            foreach (var file in files)
+            {
+                if (file.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileName(file.FileName);
+                    string path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                    file.SaveAs(path);
+                }
+            }
         }
 
     }
